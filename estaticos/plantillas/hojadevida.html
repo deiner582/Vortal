@@ -1,0 +1,121 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Informacion Estudiante</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                    <th>Tipo Documento</th>
+                                  <th>Documento</th>
+                                  <th>Primer Nombre</th>
+                                     <th>Segundo Nombre</th>
+                                  <th>Primer Apellido</th>
+                                  <th>Segundo Apellido</th>
+                                  <th>Carrera</th>
+                                    <th>Correo</th>
+                                    <th>telefono</th>
+
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+
+                                <tr>
+                                    <td>{{ e.tipo_documento }}</td>
+                                  <td>{{ e.documento }}</td>
+                                  <td>{{ e.primer_nombre }}</td>
+                                     <td>{{ e.segundo_nombre }}</td>
+                                  <td>{{ e.primer_apellido }}</td>
+                                    <td>{{ e.segundo_apellido }}</td>
+
+                                    <td>{{ e.programa }}</td>
+
+                                        <td>{{ e.correo }}</td>
+                                     <td>{{ e.telefono }}</td>
+
+                                </tr>
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div class="panel panel-default">
+                        <div class="panel-heading">Ubicacion</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+
+                                  <th>Ciudad</th>
+                                  <th>Direccion</th>
+                                  <th>Barrio</th>
+                                    <th>Estrato</th>
+
+
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+
+                                <tr>
+                                  <td>{{ e.lugar_nacimiento }}</td>
+                                  <td>{{ e.direccion }}</td>
+
+
+                                    <td>Los mayales</td>
+
+                                        <td>1</td>
+
+
+                                </tr>
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+            <div style="text-align: right">
+                <a href="/principal">
+                     <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+
+
+                                </button>
+                </a>
+
+                <button type="button" class="btn btn-warning">
+                                  <span class="fa fa-calendar"></span> Editar Info
+
+
+                                </button>
+
+
+
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

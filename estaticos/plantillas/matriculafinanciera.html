@@ -1,0 +1,74 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+<div class="panel panel-default">
+                        <div class="panel-heading">Total liquidacion estudiante</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                  <th>Referencia de pago</th>
+                                    <th>Año</th>
+                                  <th>Periodo</th>
+                                  <th>Total descuento</th>
+ <th>Valor pagado</th>
+                                    <th>Estado</th>
+                                     <th></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>24343-9</td>
+                                  <td>2015</td>
+                                  <td>02</td>
+                                    <td>0.00</td>
+                                     <td>708.519</td>
+                                    <td>Pagado</td>
+
+ <td>
+                                    	<label class="cr-styled">
+                                        <input type="radio" ng-model="">
+                                        <i class="fa"></i>
+                                    	</label>
+                                    </td>
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+ <!-- fila comienzo -->
+
+            <div style="text-align: right">
+  <a href="/principal">
+                     <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+
+
+                                </button>
+                </a>
+                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-arrow-right"></span> Continuar
+
+
+                                </button>
+
+
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

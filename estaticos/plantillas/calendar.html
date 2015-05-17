@@ -1,0 +1,103 @@
+
+        <!-- Header Ends -->
+               {% extends 'base.html' %}
+{% block content %}
+        
+        <div class="warper container-fluid">
+        	
+            <div class="page-header"><h1>Calendar <small>Let's manage events</small></h1></div>
+            
+            
+            <div class="row">
+            
+            	<div class="col-md-3">
+                	<div class="panel panel-default">
+                        <div class="panel-heading">Events</div>
+                        <div class="panel-body">
+                        
+                        	<h5 class="no-margn"><a href="#" class="text-muted"><strong>Nullam quis risus eget</strong></a></h5>
+                            <p><small>at 4:00 pm</small></p>
+                            
+                            <hr>
+
+                        	<h5 class="no-margn"><a href="#" class="text-primary"><strong>Meeting with John Doe</strong></a></h5>
+                            <p><small>21 feb 2014 - at 4:00 pm</small></p>
+                            
+                            <hr>
+                            
+                            <h5 class="no-margn "><a href="#" class="text-success"><strong>BirthDay Akshay Kumar</strong></a></h5>
+                            <p><small>05 sep 1990</small></p>
+                            
+                            <hr>
+                            
+                            <h5 class="no-margn"><a href="#" class="text-muted"><strong>Lorem ipsum dolor sit</strong></a></h5>
+                            <p><small>at 4:00 pm</small></p>
+                            
+                            
+                            <hr>
+                            
+                            <h5 class="no-margn"><a href="#" class="text-danger"><strong>Project Deadline - web</strong></a></h5>
+                            <p><small>30 dec 2015</small></p>
+                            
+                            <hr> 
+                            
+                            <h5 class="no-margn"><a href="#" class="text-muted"><strong>Vivamus sagittis lacus</strong></a></h5>
+                            <p><small>at 4:00 pm</small></p>
+                            
+                            <hr>
+                            
+                            <h5 class="no-margn"><a href="#" class="text-muted"><strong>Donec ullamcorper nulla</strong></a></h5>
+                            <p><small>at 4:00 pm</small></p>
+                            
+                            <hr>
+                            
+                            <div class="input-group calendar-events-ctrl">
+                              <input type="text" class="form-control calendar-event-name" placeholder="Add new event">
+                              <span class="input-group-btn">
+                                <button class="btn btn-success add-calendar-event" type="button">Add</button>
+                              </span>
+                            </div><!-- /input-group -->
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            	<div class="col-md-9">
+                	<div class="panel panel-default">
+                        <div class="panel-heading">Calendar</div>
+                        <div class="panel-body">
+
+                        	<div class="panel-heading clean clearfix text-center">
+                            <div class="btn-group pull-left">
+                                <button class="btn btn-default btn-sm" data-calendar-nav="prev">&lt;< Prev</button>
+                                <button class="btn btn-sm btn-default" data-calendar-nav="today">Today</button>
+                                <button class="btn btn-sm btn-default" data-calendar-nav="next">Next >&gt;</button>
+                            </div>
+                            <b class="calender-title"></b> 
+                            <div class="btn-group pull-right">
+                                <button class="btn btn-sm btn-default" data-calendar-view="year">Year</button>
+                                <button class="btn btn-sm btn-default active" data-calendar-view="month">Month</button>
+                                <button class="btn btn-sm btn-default" data-calendar-view="week">Week</button>
+                                <button class="btn btn-sm btn-default" data-calendar-view="day">Day</button>
+                            </div>
+                            </div>
+                            
+                            
+							<div class="panel-body">
+                            <div id="calendar"></div>
+                            </div>
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            
+        </div>
+        <!-- Warper Ends Here (working area) -->
+        
+{% endblock %}

@@ -1,0 +1,675 @@
+       {% extends 'base.html' %}
+{% block content %}
+        <!-- Header Ends -->
+        
+        
+        <div class="warper container-fluid">
+        	
+            <div class="page-header"><h1>Buttons <small>Let's get a quick overview...</small></h1></div>
+            
+            
+            <div class="row">
+            
+            	<div class="col-md-6">
+                
+                	<div class="panel panel-default">
+                        <div class="panel-heading">Colors</div>
+                        <div class="panel-body">
+                        
+                        	<h6>Custom Colors</h6>
+                    
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li><button type="button" class="btn btn-purple">Default</button></li>
+                                <li><button type="button" class="btn btn-green">Primary</button></li>
+                                <li><button type="button" class="btn btn-success">Success</button></li>
+                                <li><button type="button" class="btn btn-info">Info</button></li>
+                                <li><button type="button" class="btn btn-warning">Warning</button></li>
+                                <li><button type="button" class="btn btn-danger">Danger</button></li>
+                                <li><button type="button" class="btn btn-link">Link</button></li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <h6>Bootstrap Color</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li><button type="button" class="btn btn-default">Default Button</button></li>
+                                <li><button type="button" class="btn btn-primary">Primary  Button</button></li>
+                                <li><button type="button" class="btn btn-success">Success  Button</button></li>
+                                <li><button type="button" class="btn btn-info">Info  Button</button></li>
+                                <li><button type="button" class="btn btn-warning">Warning  Button</button></li>
+                                <li><button type="button" class="btn btn-danger">Danger  Button</button></li>
+                                <li><button type="button" class="btn btn-link">Link  Button</button></li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Dropdown</div>
+                        <div class="panel-body">
+                        
+                        	<h6>Single button dropdowns</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                            	<li>
+                                    <div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">Default <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button">Primary <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-success dropdown-toggle" type="button">Success <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-info dropdown-toggle" type="button">Info <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle" type="button">Warning <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle" type="button">Danger <span class="caret"></span></button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                    
+                            
+                            <hr>
+                            
+                            <h6>Split button dropdowns</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                            	<li>
+                                    <div class="btn-group">
+                                      <button class="btn btn-default" type="button">Default</button>
+                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="btn-group">
+                                      <button class="btn btn-primary" type="button">Primary</button>
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button class="btn btn-success" type="button">Success</button>
+                                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button class="btn btn-info" type="button">Info</button>
+                                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button class="btn btn-warning" type="button">Warning</button>
+                                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                	<div class="btn-group">
+                                      <button class="btn btn-danger" type="button">Danger</button>
+                                      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                      </button>
+                                      <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                      </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            
+                            <hr>
+                            
+                            <h6>Sizing</h6>
+                            
+                            <!-- Large button group -->
+                            <div class="btn-group">
+                              <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+                                Large button <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                               	  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+                            
+                            <!-- Small button group -->
+                            <div class="btn-group">
+                              <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                Small button <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                               	  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+                            
+                            <!-- Extra small button group -->
+                            <div class="btn-group">
+                              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                Extra small button <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                               	  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Dropup variation</h6>
+                            
+                            <div class="btn-group dropup">
+                              <button type="button" class="btn btn-info">Dropup</button>
+                              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div>
+                        
+                        </div>
+                    </div>
+                
+                	<div class="panel panel-default">
+                        <div class="panel-heading">With Icons</div>
+                        <div class="panel-body">
+                        
+                        	<h6>Glyphicons</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-star"></span> Star
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-trash"></span> Trash
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-ok"></span> Ok
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-envelope"></span> Mail
+                                </button>
+                                </li>
+                                <li>
+                                <a href="icons.html" class="btn btn-link">
+                                  More Icons
+                                </a>
+                                </li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-home"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-repeat"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-comment"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <a href="icons.html" class="btn btn-link">
+                                  More Icons
+                                </a>
+                                </li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <h6>Fontawesome</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-star"></span> Star
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-trash"></span> Trash
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-ok"></span> Ok
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-envelope"></span> Mail
+                                </button>
+                                </li>
+                                <li>
+                                <a href="icons.html" class="btn btn-link">
+                                  More Icons
+                                </a>
+                                </li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-home"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-repeat"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-comment"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                                </li>
+                                <li>
+                                <a href="icons.html" class="btn btn-link">
+                                  More Icons
+                                </a>
+                                </li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <div class="btn-group">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-align-left"></span></button>
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-align-center"></span></button>
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-align-right"></span></button>
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-align-justify"></span></button>
+                              </div>
+                            
+                        </div>
+                   </div>
+                    
+                </div><!-- Column Left -->
+                
+                
+                <div class="col-md-6">
+                
+                	<div class="panel panel-default">
+                        <div class="panel-heading">Size &amp; Shapes</div>
+                        <div class="panel-body">
+                        
+                        	<h6>Sizes</h6>
+                        
+                        	<ul class="list-unstyled list-inline showcase-btn">
+                                <li><button class="btn btn-success btn-lg" type="button">Large</button></li>
+                                <li><button class="btn btn-info" type="button">Default</button></li>
+                                <li><button class="btn btn-warning btn-sm" type="button">Small</button></li>
+                                <li><button class="btn btn-danger btn-xs" type="button">mini</button></li>
+                            </ul>
+                        	
+                            <hr>
+                        
+                        	<h6>Rounded Buttons</h6>
+                    
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li><button type="button" class="btn btn-default btn-circle">Default</button></li>
+                                <li><button type="button" class="btn btn-primary btn-circle">Primary</button></li>
+                                <li><button type="button" class="btn btn-success btn-circle">Success</button></li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <h6>Flat Buttons</h6>
+                            
+                            <ul class="list-unstyled list-inline showcase-btn">
+                                <li><button type="button" class="btn btn-info btn-circle btn-flat">Info</button></li>
+                                <li><button type="button" class="btn btn-warning btn-circle btn-flat">Warning</button></li>
+                                <li><button type="button" class="btn btn-danger btn-circle btn-flat">Danger</button></li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Buttons Group</div>
+                        <div class="panel-body">
+                        
+                        	<h6>Horizontal example</h6>
+                    
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default">Left</button>
+                              <button type="button" class="btn btn-default">Middle</button>
+                              <button type="button" class="btn btn-default">Right</button>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Vertical variation</h6>
+                    
+                            <div class="btn-group-vertical">
+                              <button type="button" class="btn btn-default">Button</button>
+                              <button type="button" class="btn btn-default">Button</button>
+                              <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                  Dropdown
+                                  <span class="caret"></span>
+                                </button>
+                                <ul aria-labelledby="btnGroupVerticalDrop1" role="menu" class="dropdown-menu">
+                                  <li><a href="#">Dropdown link</a></li>
+                                  <li><a href="#">Dropdown link</a></li>
+                                </ul>
+                              </div>
+                              <button type="button" class="btn btn-default">Button</button>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Button toolbar</h6>
+                            
+                            <div class="btn-toolbar" role="toolbar">
+                              <div class="btn-group">
+                                <button class="btn btn-default" type="button">1</button>
+                                <button class="btn btn-default" type="button">2</button>
+                                <button class="btn btn-default" type="button">3</button>
+                                <button class="btn btn-default" type="button">4</button>
+                              </div>
+                              <div class="btn-group">
+                                <button class="btn btn-default" type="button">5</button>
+                                <button class="btn btn-default" type="button">6</button>
+                                <button class="btn btn-default" type="button">7</button>
+                              </div>
+                              <div class="btn-group">
+                                <button class="btn btn-default" type="button">8</button>
+                              </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Sizing</h6>
+                            
+                            <div role="toolbar" class="btn-toolbar showcase-btn">
+                              <div class="btn-group btn-group-lg">
+                                <button class="btn btn-default" type="button">Left</button>
+                                <button class="btn btn-default" type="button">Middle</button>
+                                <button class="btn btn-default" type="button">Right</button>
+                              </div>
+                            </div>
+                            <div role="toolbar" class="btn-toolbar showcase-btn">
+                              <div class="btn-group">
+                                <button class="btn btn-default" type="button">Left</button>
+                                <button class="btn btn-default" type="button">Middle</button>
+                                <button class="btn btn-default" type="button">Right</button>
+                              </div>
+                            </div>
+                            <div role="toolbar" class="btn-toolbar showcase-btn">
+                              <div class="btn-group btn-group-sm">
+                                <button class="btn btn-default" type="button">Left</button>
+                                <button class="btn btn-default" type="button">Middle</button>
+                                <button class="btn btn-default" type="button">Right</button>
+                              </div>
+                            </div>
+                            <div role="toolbar" class="btn-toolbar showcase-btn">
+                              <div class="btn-group btn-group-xs">
+                                <button class="btn btn-default" type="button">Left</button>
+                                <button class="btn btn-default" type="button">Middle</button>
+                                <button class="btn btn-default" type="button">Right</button>
+                              </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Nesting</h6>
+                            
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default">1</button>
+                              <button type="button" class="btn btn-default">2</button>
+                            
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                  Dropdown
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Dropdown link</a></li>
+                                  <li><a href="#">Dropdown link</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Justified button groups</h6>
+                            
+                            <div class="btn-group btn-group-justified">
+                              <a role="button" class="btn btn-default">Left</a>
+                              <a role="button" class="btn btn-default">Middle</a>
+                              <div class="btn-group">
+                                <a data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                                  Dropdown <span class="caret"></span>
+                                </a>
+                                <ul role="menu" class="dropdown-menu">
+                                  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            
+                            <hr>
+                            
+                            <h6>Pagination</h6>
+                            
+                            <ul class="pagination pagination-lg showcase-pagination">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                              </ul>
+                              
+                            <ul class="pagination showcase-pagination">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li class="active"><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                              </ul>
+                              
+                            <div>  
+                            <ul class="pagination pagination-sm showcase-pagination">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">»</a></li>
+                              </ul>
+                        	</div>
+                            
+                            <hr>
+                            
+                            <h6>Pager</h6>
+                            
+                            <ul class="pager">
+                              <li><a href="#">Previous</a></li>
+                              <li><a href="#">Next</a></li>
+                            </ul>
+                            
+                            <hr>
+                            
+                            <ul class="pager">
+                              <li class="previous"><a href="#">&larr; Older</a></li>
+                              <li class="next"><a href="#">Newer &rarr;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                	
+                	
+                </div><!-- Column Right -->
+            
+            </div>
+            
+            
+            
+            
+        </div>
+        <!-- Warper Ends Here (working area) -->
+        
+       {% endblock %}

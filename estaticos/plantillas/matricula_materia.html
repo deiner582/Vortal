@@ -1,0 +1,90 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Grupos que puede matricular</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                  <th>Codigo</th>
+                                  <th>Nombre</th>
+                                  <th>Creditos</th>
+                                  <th>Grupos</th>
+                                    <th></th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for materia in m %}
+
+
+                                <tr>
+                                  <td>{{ materia.codigo }}</td>
+                                  <td>{{ materia.nombre }}</td>
+                                  <td>{{ materia.creditos }}</td>
+
+                                    <td>
+
+ <select class="form-control  form-control-flat input-sm">
+     {% for gr in g %}
+
+                                      <option>{{ gr.grupo }}</option>
+         {% endfor %}
+ </select>
+                                    </td>
+
+                                        <td>
+                                    	<label class="cr-styled">
+                                        <input type="radio" ng-model="" name="materias">
+                                        <i class="fa"></i>
+                                    	</label>
+                                    </td>
+
+                                </tr>
+ {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div style="text-align: right">
+                <a href="/matricula">
+                     <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+
+
+                                </button>
+                </a>
+
+                <button type="button" class="btn btn-warning">
+                                  <span class="fa fa-calendar"></span> Horario
+
+
+                                </button>
+
+
+                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-ok"></span> Registrar
+
+
+                                </button>
+
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

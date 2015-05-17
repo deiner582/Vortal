@@ -1,0 +1,116 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+<div class="panel panel-default">
+                        <div class="panel-heading">Informacion</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                  <th>Programa</th>
+                                    <th>Semestre</th>
+                                  <th>Creditos matriculados</th>
+                                  <th>Creditos que puede matricular</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Ing.de sistemas</td>
+                                  <td>09</td>
+                                  <td>04</td>
+                                    <td>20</td>
+
+
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Grupos matriculados</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                  <th>Codigo</th>
+                                  <th>Nombre</th>
+                                  <th>Creditos</th>
+                                  <th>Grupo</th>
+                                    <th></th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>CQ43</td>
+                                  <td>Control 1</td>
+                                  <td>04</td>
+                                    <td>01</td>
+
+                                    <td>
+                                    	<label class="cr-styled">
+                                        <input type="radio" ng-model="">
+                                        <i class="fa"></i>
+                                    	</label>
+                                    </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div style="text-align: right">
+  <a href="/principal">
+                     <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+
+
+                                </button>
+                </a>
+                 <a href="/horario">
+                <button type="button" class="btn btn-warning">
+                                  <span class="fa fa-calendar"></span> Horario
+
+
+                                </button>
+</a>
+                 <button type="button" class="btn btn-warning">
+                                  <span class="fa fa-exchange"></span> Cambiar Grupo
+
+
+                                </button>
+<a href="/matriculamateria">
+                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-ok"></span> Matricular
+
+
+                                </button>
+</a>
+                  <button type="button" class="btn btn-warning">
+                                  <span class="fa fa-close"></span> Eliminar
+
+                                </button>
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

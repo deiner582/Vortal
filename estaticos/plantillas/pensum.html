@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="warper container-fluid">
+    <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Periodo 1</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+          {{pensum}}
+                              <thead>
+                                <tr>
+                                  <th>Codigo</th>
+                                  <th>Nombre</th>
+                                  <th>Ponderacion academica</th>
+                                  <th>Creditos requeridos</th>
+                                    <th>Requisitos</th>
+                                     <th>Cursada</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for pensum in p %}
+                                   {% for m in pensum.materias.all %}
+
+
+
+
+                                <tr>
+                                  <td></td>
+                                  <td>{{ m }}</td>
+                                  <td>4</td>
+                                    <td>0</td>
+                                   <td>CQ42</td>
+                                    <td>
+                                    	<label class="cr-styled">
+                                        <input type="checkbox" ng-model="todo.done">
+                                        <i class="fa"></i>
+                                    	</label>
+                                    </td>
+                                </tr>
+
+                                       {% endfor %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div style="text-align: right">
+
+                <button type="button" class="btn btn-warning">
+                                  <span class="glyphicon glyphicon-print"></span> Imprimir
+
+
+                                </button>
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

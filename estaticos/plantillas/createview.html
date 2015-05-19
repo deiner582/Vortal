@@ -1,0 +1,24 @@
+
+        <!-- Header Ends -->
+         {% extends 'base.html' %}
+        {% load crispy_forms_tags %}
+
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+ <!-- fila comienzo -->
+<form method="POST" action="." role="form">
+            {% csrf_token %}
+            {{ form|crispy }}
+    <input type="submit" value="Grabar" class="btn btn-primary default" name="_save">
+</form>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

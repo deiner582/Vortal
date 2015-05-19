@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Estudiante.views import HorarioView
+from Estudiante.views import *
 from Estudiante.views import Index,Logueado
 urlpatterns = [
     url(r'^$', Index.as_view(), name='index'),
@@ -28,6 +28,10 @@ urlpatterns = [
      url(r'^matriculamateria/', 'Estudiante.views.matriculamateria', name='opcion'),
     url(r'^financiera/', 'Estudiante.views.financiera', name='opcion'),
      url(r'^estudiante/(?P<ced>.*)$','Estudiante.views.Hojavida',name='Estudiante'),
-
+      url(r'^lista/', ListaEstudiante.as_view(), name='lista'),
+    url(r'^detalle/(?P<pk>.*)$',DetalleEstudiante.as_view(), name='Detalle'),
+      url(r'^crear/', CrearEstudiante.as_view(), name='Crear'),
+    url(r'^eliminar/(?P<pk>.*)$', ElimnarFacultad.as_view(), name='eliminar'),
+    url(r'^editar/(?P<pk>.*)$', ActulizarFacultad.as_view(), name='actualizar'),
 
 ]

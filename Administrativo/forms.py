@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+#encoding: utf-8
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
@@ -24,7 +24,7 @@ class FormularioLogin(forms.Form):
     helper.layout = Layout(
 
         PrependedText('usuario', '<span class="glyphicon glyphicon-user"></span>', active=True),
-        PrependedText('contrasena', '<span class="glyphicon glyphicon-asterisk"></span>'),
+        PrependedText('contraseña', '<span class="glyphicon glyphicon-asterisk"></span>'),
         'multicolon_select',
 
 

@@ -1,0 +1,53 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Informacion Estudiante</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                    <th>codigo</th>
+                                  <th>nombre</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+
+        <tr>
+            <td>{{ object.codigo }}</td>
+            <td>{{ object.nombre }}</td>
+
+        </tr>
+
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+        <div style="text-align: right">
+ <a href="/lista">
+              <button type="button" class="btn btn-warning">regresar</button>
+
+        </a>
+        </div>
+
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

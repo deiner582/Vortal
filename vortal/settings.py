@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'Estudiante',
     'vortal',
     'crispy_forms',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (

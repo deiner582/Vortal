@@ -1,0 +1,70 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Informacion Estudiante</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+                                    <th>codigo</th>
+                                  <th>nombre</th>
+                                    <th>Detalle</th>
+                                     <th>editar</th>
+                                     <th>eliminar</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+{% for facultad in object_list %}
+        <tr>
+            <td>{{ facultad.codigo }}</td>
+            <td>{{ facultad.nombre }}</td>
+            <td>
+            <a href="/detalle/{{ facultad.codigo }}">
+               <button type="button" class="btn btn-warning">detalle</button>
+            </a>
+          </td>
+            <td>
+             <a href="/editar/{{ facultad.codigo }}">
+             <button type="button" class="btn btn-warning">editar</button>
+             </a>
+            </td>
+        <td>
+            <a href="/eliminar/{{ facultad.codigo }}">
+               <button type="button" class="btn btn-warning">eliminar</button>
+            </a>
+          </td>
+        </tr>
+    {% endfor %}
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+        <div style="text-align: right">
+ <a href="/crear">
+              <button type="button" class="btn btn-warning">Agregar</button>
+
+        </a>
+        </div>
+
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

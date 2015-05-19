@@ -1,0 +1,27 @@
+
+        <!-- Header Ends -->
+         {% extends 'base.html' %}
+        {% load crispy_forms_tags %}
+
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small> </h1></div>
+ <!-- fila comienzo -->
+<h2>Realmente desea eliminar {{ object }} ?</h2>
+
+<p>Este dato se borrara permanentemente</p>
+ <!-- fila final -->
+       <form method="POST" action="/eliminar/{{ object.codigo }}" role="form">
+
+            {% csrf_token %}
+   <input type="submit" class="btn btn-danger" value="Sí, estoy seguro">
+
+</form>
+
+                </div>
+
+
+
+        
+{% endblock %}

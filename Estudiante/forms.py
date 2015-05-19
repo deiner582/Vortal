@@ -5,6 +5,7 @@ from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
 
+
 class FormularioLogin(forms.Form):
     usuario=forms.CharField(label='Usuario :  ',required=True)
     contrasena=forms.CharField(label='Contrasena :  ',required=True,widget=forms.PasswordInput)

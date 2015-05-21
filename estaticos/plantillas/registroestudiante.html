@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% block title %} <title>Vortal Academico UPC</title>{% endblock %}
+
+	<meta name="description" content="">
+
+<link rel="icon" type="image/png" href="../estaticos/images/favicon.png" />
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="../estaticos/css/bootstrap/bootstrap.css" />
+
+
+
+	<!-- Typeahead Styling  -->
+    <link rel="stylesheet" href="../estaticos/css/plugins/typeahead/typeahead.css" />
+
+    <!-- TagsInput Styling  -->
+    <link rel="stylesheet" href="../estaticos/css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+
+    <!-- Chosen Select  -->
+    <link rel="stylesheet" href="../estaticos/css/plugins/bootstrap-chosen/chosen.css" />
+
+    <!-- DateTime Picker  -->
+    <link rel="stylesheet" href="../estaticos/css/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css" />
+
+    <!-- Switch Buttons  -->
+    <link rel="stylesheet" href="../estaticos/css/switch-buttons/switch-buttons.css" />
+
+	<!-- Calendar Styling  -->
+    <link rel="stylesheet" href="../estaticos/css/plugins/calendar/calendar.css" />
+
+    <!-- Fonts  -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="../estaticos/css/app/app.v1.css" />
+     <script src="../estaticos/js/validaciones/ValidacionFormularioLogin.js"></script>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- Preloader -->
+
+    <!-- Preloader -->
+
+	<aside class="left-panel">
+
+            <div class="user text-center">
+                  <img  src="../estaticos/images/unicesar.png"  alt="...">
+                  <h4 class="user-name">UPC</h4>
+
+
+            </div>
+
+
+
+
+
+    </aside>
+
+    <section class="content">
+
+        <header class="top-head container-fluid">
+
+
+
+
+
+
+        </header>
+        <!-- Header Ends -->
+
+
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>formulario de registro estudiante</h1></div>
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-danger">{{ form.errors }}</div>
+        </div>
+    </div>
+
+            <div class="row">
+
+            	<div class="col-md-12">
+                 	<div class="panel panel-default">
+                        <div class="panel-heading">Datos</div>
+                        <div class="panel-body">
+                               <form method="POST" action="." role="form">
+                           {% csrf_token %}
+
+                          <div class="form-group">
+                              <div class="row">
+                                   <label class="col-sm-3 control-label">Tipo Documento:</label>
+                                  <label class="col-sm-3 control-label">Documento:</label>
+                                  <label class="col-sm-3 control-label">Fecha Expedicion:</label>
+                                  <label class="col-sm-3 control-label">Lugar Expedicion:</label>
+                              </div>
+                                       <div class="row">
+                                     <div class="col-sm-3">
+
+                                        {{ form.tipo_documento }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                     {{ form.documento }}
+                                        {{ form.documeto.errors }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                      <div class="input-group date" id="datepicker">
+                                             {{ form.fecha_expedicion }}
+                                            <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                        {{ form.lugar_expedicion }}
+                                    </div>
+                                 </div>
+                          </div>
+
+
+
+
+                                   <hr class="dotted">
+                                                             <div class="form-group">
+                              <div class="row">
+                                   <label class="col-sm-3 control-label">Primer Nombre:</label>
+                                  <label class="col-sm-3 control-label">Segundo Nombre:</label>
+                                  <label class="col-sm-3 control-label">Primer Apellido:</label>
+                                  <label class="col-sm-3 control-label">Segundo Apellido:</label>
+                              </div>
+                                       <div class="row">
+                                     <div class="col-sm-3">
+
+                                        {{ form.primer_nombre }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                     {{ form.segundo_nombre }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                             {{ form.primer_apellido }}
+
+
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                        {{ form.segundo_apellido }}
+                                    </div>
+                                 </div>
+                          </div>
+
+
+ <hr class="dotted">
+                                                             <div class="form-group">
+                              <div class="row">
+                                   <label class="col-sm-4 control-label">Sexo:</label>
+                                  <label class="col-sm-4 control-label">Lugar de nacimiento:</label>
+                                  <label class="col-sm-4 control-label">Fecha de nacimiento:</label>
+
+                              </div>
+                                       <div class="row">
+                                     <div class="col-sm-4">
+
+                                        {{ form.sexo }}
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                     {{ form.lugar_nacimiento }}
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="input-group date">
+                                            {{ form.fecha_nacimiento }}
+                                            <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                 </div>
+                          </div>
+
+
+
+<hr class="dotted">
+                                                             <div class="form-group">
+                              <div class="row">
+                                   <label class="col-sm-3 control-label">Direccion:</label>
+                                  <label class="col-sm-3 control-label">Telefono:</label>
+                                  <label class="col-sm-3 control-label">Correo:</label>
+
+                              </div>
+                                       <div class="row">
+                                     <div class="col-sm-3">
+
+                                        {{ form.direccion }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                     {{ form.telefono }}
+                                    </div>
+
+                                    <div class="col-sm-3">
+
+                                             {{ form.correo }}
+                                         {{ form.correo.errors }}
+
+
+                                    </div>
+
+                                 </div>
+                          </div>
+
+
+
+
+<hr class="dotted">
+
+                                     <div class="form-group">
+                              <div class="row">
+                                   <label class="col-sm-6 control-label">Programa al que desea ingresar :</label>
+                                   <label class="col-sm-2 control-label">Estrato :</label>
+                                   <label class="col-sm-4 control-label">Etnia :</label>
+
+                              </div>
+                                       <div class="row">
+                                     <div class="col-sm-6">
+
+                                        {{ form.programa }}
+                                    </div>
+                                            <div class="col-sm-2">
+
+                                        {{ form.estrato }}
+                                    </div>
+                                           <div class="col-sm-3">
+
+                                        {{ form.etnia }}
+                                    </div>
+
+
+                                 </div>
+                          </div>
+
+
+    <br/>
+                                   <div style="text-align: right">
+                                       <input type="submit" class="btn btn-success" id="boton" value='Enviar' >
+                                   </div>
+
+
+</form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- Warper Ends Here (working area) -->
+
+
+        <footer class="container-fluid footer">
+        	Copyright &copy; 2014 <a href="http://freakpixels.com/" target="_blank">FreakPixels</a>
+            <a href="#" class="pull-right scrollToTop"><i class="fa fa-chevron-up"></i></a>
+        </footer>
+
+
+    </section>
+    <!-- Content Block Ends Here (right box)-->
+
+
+
+    <!-- JQuery v1.9.1 -->
+	<script src="../estaticos/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../estaticos/js/plugins/underscore/underscore-min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../estaticos/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Globalize -->
+    <script src="../estaticos/js/globalize/globalize.min.js"></script>
+
+    <!-- NiceScroll -->
+    <script src="../estaticos/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+	<!-- TypeaHead -->
+    <script src="../estaticos/js/plugins/typehead/typeahead.bundle.js"></script>
+    <script src="../estaticos/js/plugins/typehead/typeahead.bundle-conf.js"></script>
+
+    <!-- InputMask -->
+    <script src="../estaticos/js/plugins/inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- TagsInput -->
+    <script src="../estaticos/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
+    <!-- Chosen -->
+    <script src="../estaticos/js/plugins/bootstrap-chosen/chosen.jquery.js"></script>
+
+    <!-- moment -->
+    <script src="../estaticos/js/moment/moment.js"></script>
+
+    <!-- DateTime Picker -->
+    <script src="../estaticos/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <!-- Custom JQuery -->
+	<script src="../estaticos/js/app/custom.js" type="text/javascript"></script>
+
+
+
+
+	<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56821827-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

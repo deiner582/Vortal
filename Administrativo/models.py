@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-#from Docente.models import Docente
+#from Docente.models import Profesion
 # Create your models here.
 class Departamento(models.Model):
     codigo=models.CharField(primary_key=True,max_length=10)
@@ -19,7 +19,8 @@ class Ciudad(models.Model):
         return self.nombre+','+self.departamento.nombre
 
     class Meta:
-        verbose_name_plural="Ciudades"
+        verbose_name_plural='Ciudades'
+
 class Persona(models.Model):
     Sexo = (
    ('M', 'M'),
@@ -46,7 +47,7 @@ class Persona(models.Model):
     direccion=models.CharField(max_length=100)
     telefono=models.IntegerField()
     correo=models.EmailField(blank=True,null=True,unique=True)
-    usuario = models.OneToOneField(User)
+    usuario = models.OneToOneField(User,null=True,blank=True)
 
     def __unicode__(self):
         return  self.primer_nombre
@@ -62,6 +63,8 @@ class Facultad(models.Model):
         #nombre en plural del modelo
         verbose_name_plural='Facultades'
 
+
+
 class Programa(models.Model):
      facultad=models.ForeignKey(Facultad)
      codigo=models.CharField(primary_key=True,max_length=10)
@@ -70,6 +73,8 @@ class Programa(models.Model):
      def __unicode__(self):
         return self.nombre
 
+class JefeDepartamento(Persona):
+     programa=models.OneToOneField(Programa)
 
 class Bloque(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)

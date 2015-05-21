@@ -9,13 +9,13 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView,ListView,CreateView,DeleteView,UpdateView,DetailView
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import TemplateView
-from Estudiante.forms import FormularioLogin
+from Estudiante.forms import FormularioLogin,FormularioRegistro
 
 class Index(FormView):
 
     template_name = "index.html"
     form_class = FormularioLogin
-    success_url = reverse_lazy('home')
+    success_url = '/principal/'
 
     def form_valid(self, form):
         usr = form.cleaned_data['usuario']
@@ -44,6 +44,7 @@ class Logueado(ListView):
         return contexto
 
 class HorarioView(TemplateView):
+
     template_name = 'horario.html'
 
 
@@ -105,5 +106,9 @@ class ActulizarFacultad(UpdateView):
     fields = ['codigo','nombre']
     success_url = "/lista"
 
-
+class RegistroEstudiante(CreateView):
+    template_name = 'registroestudiante.html'
+    model = Estudiante
+    success_url = '/'
+    form_class = FormularioRegistro
 

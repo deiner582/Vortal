@@ -33,5 +33,6 @@ urlpatterns = [
       url(r'^crear/', CrearEstudiante.as_view(), name='Crear'),
     url(r'^eliminar/(?P<pk>.*)$', ElimnarFacultad.as_view(), name='eliminar'),
     url(r'^editar/(?P<pk>.*)$', ActulizarFacultad.as_view(), name='actualizar'),
+    url(r'^registrarestudiante/', RegistroEstudiante.as_view(), name='registrar_estudiante'),
 
 ]

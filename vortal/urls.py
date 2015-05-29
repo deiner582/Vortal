@@ -20,7 +20,7 @@ from Estudiante.views import Index,Logueado
 from Administrativo.views import CrearFacultad
 urlpatterns = [
     url(r'^$', Index.as_view(), name='index'),
-    url(r'^principal/', Logueado.as_view(), name='home'),
+    url(r'^principal/(?P<pk>.*)$', Logueado.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^horario/',HorarioView.as_view(), name='opcion'),
     url(r'^pensum/', 'Estudiante.views.pensum', name='pensum'),

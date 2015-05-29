@@ -46,12 +46,13 @@
 
             <div class="user text-center">
                   <img src="../estaticos/images/avtar/user.png" class="img-circle" alt="...">
-                  <h4 class="user-name">Deiner Restrepo</h4>
-              <p class="user-name">ingenieria de sistemas</p>
+                  <h4 class="user-name"> {{ estudiante }} </h4>
+              <p class="user-name">{{ estudiante.programa }}</p>
                 <div class="dropdown user-login">
 
                   <div class="btn btn-xs dropdown-toggle btn-rounded"   aria-expanded="true">
-                      {% if 1 == 1 %}
+
+                      {% if estudiante.estado == "Activo" %}
                        <i class="fa fa-circle status-icon available"></i> Activo
                       {% else %}
                        <i class="fa fa-circle status-icon signout"></i> Inactivo

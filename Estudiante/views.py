@@ -15,7 +15,6 @@ from Estudiante.forms import FormularioLogin,FormularioRegistro
 class Index(FormView):
     template_name = "index.html"
     form_class = FormularioLogin
-    success_url = '/principal/'
 
     def form_valid(self, form):
         usr = form.cleaned_data['usuario']
@@ -25,23 +24,20 @@ class Index(FormView):
             print("Valido")
             if autenticacion.is_active:
                 login(self.request,autenticacion)
-                return redirect(reverse_lazy('home'))
+                e=Estudiante.objects.get(documento=1065658040)
+                return redirect(reverse_lazy('home',kwargs={'pk': e.documento }))
             else:
-                print("No Valido")
-                return render_to_response('signin.html',{"estado":"Error de Usuario o Contrasena","form":form},context_instance=RequestContext(self.request))
+                 return redirect(reverse_lazy('index'))
         else:
-            print("No Valido")
+
             return render_to_response('signin.html',{"estado":"Error de Usuario o Contrasena","form":form},context_instance=RequestContext(self.request))
         return super(Login, self).form_valid(form)
 
-class Logueado(ListView):
-    context_object_name = "estudiante"
+class Logueado(DetailView):
+    model = Estudiante
     template_name = "home.html"
 
-    def get_queryset(self):
-        #self.publisher = get_object_or_404(Estudiante, name=self.args[0])
-        contexto = Estudiante.objects.filter(usuario=self.request.user)
-        return contexto
+
 
 class HorarioView(TemplateView):
 

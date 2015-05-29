@@ -7,7 +7,8 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Administrativo', '0003_auto_20150521_0759'),
+        ('Administrativo', '0001_initial'),
+        ('Docente', '0001_initial'),
     ]
 
     operations = [
@@ -25,6 +26,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('codigo', models.CharField(max_length=10, serialize=False, primary_key=True)),
                 ('nombre', models.CharField(max_length=50)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='MatriculaAcademica',
+            fields=[
+                ('codigo', models.CharField(max_length=20, serialize=False, primary_key=True)),
+                ('estudiante', models.ForeignKey(to='Estudiante.Estudiante')),
+                ('grupos', models.ManyToManyField(to='Docente.Grupo')),
             ],
         ),
         migrations.AddField(

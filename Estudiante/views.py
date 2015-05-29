@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect,render_to_response,get_object_or_40
 from django.template import RequestContext
 
 from Administrativo.models import *
-from .models import Estudiante
+from .models import Estudiante,MatriculaAcademica
+from Docente.models import Grupo
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
 
@@ -12,7 +13,6 @@ from django.views.generic import TemplateView
 from Estudiante.forms import FormularioLogin,FormularioRegistro
 
 class Index(FormView):
-
     template_name = "index.html"
     form_class = FormularioLogin
     success_url = '/principal/'
@@ -59,11 +59,6 @@ def opcioncalificacion(request):
 def matricula(request):
     return render_to_response('matricula.html',context_instance=RequestContext(request))
 
-def matriculamateria(request):
-    m=Materia.objects.all()
-    g=Grupo.objects.all()
-    return render_to_response('matricula_materia.html',locals(),context_instance=RequestContext(request))
-
 def horario(request):
     return render_to_response('horario.html',context_instance=RequestContext(request))
 
@@ -92,8 +87,8 @@ class ListaEstudiante(ListView):
     model = Facultad
 
 class DetalleEstudiante(DetailView):
-    template_name = 'detailview.html'
-    model = Facultad
+    template_name = 'hojadevida.html'
+    model = Estudiante
 
 class ElimnarFacultad(DeleteView):
     template_name = 'deleteview.html'
@@ -112,3 +107,22 @@ class RegistroEstudiante(CreateView):
     success_url = '/'
     form_class = FormularioRegistro
 
+class ListaGrupos(ListView):
+    template_name = 'matricula_materia.html'
+    model = Grupo
+
+    def get_context_data(self, **kwargs):
+        context = super(ListaGrupos, self).get_context_data(**kwargs)
+        m=Materia.objects.all()
+        context['grupo']=Grupo.objects.filter(materia='m1')
+        context['materias']=Materia.objects.all()
+        return context
+
+class HorarioMateria(DetailView):
+    template_name = 'horariomateria.html'
+    model = Grupo
+
+
+class ListaMateriasGrupos(ListView):
+    template_name = 'matricula.html'
+    model = MatriculaAcademica

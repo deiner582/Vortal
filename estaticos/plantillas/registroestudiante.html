@@ -96,14 +96,40 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="alert alert-danger">{{ form.errors }}</div>
+        <div class="panel panel-info">
+                      <div class="panel-heading">Infomacion</div>
+                      <div class="panel-body">
+                        Los campos con <span class="glyphicon-asterisk glyphicon"></span> son obligatorios
+                      </div>
+                    </div>
+
         </div>
+
+
+
     </div>
+            {% if form.errors %}
+                <div class="row">
+              <div class="col-md-12">
+              <div class="panel panel-danger">
+                      <div class="panel-heading">Error</div>
+                      <div class="panel-body">
+                         {{ form.errors }}
+                      </div>
+                    </div>
+
+
+
+
+
+                </div>
+                </div>
+            {% endif %}
 
             <div class="row">
 
             	<div class="col-md-12">
-                 	<div class="panel panel-default">
+                 	<div class="panel panel-success">
                         <div class="panel-heading">Datos</div>
                         <div class="panel-body">
                                <form method="POST" action="." role="form">
@@ -111,10 +137,10 @@
 
                           <div class="form-group">
                               <div class="row">
-                                   <label class="col-sm-3 control-label">Tipo Documento:</label>
-                                  <label class="col-sm-3 control-label">Documento:</label>
-                                  <label class="col-sm-3 control-label">Fecha Expedicion:</label>
-                                  <label class="col-sm-3 control-label">Lugar Expedicion:</label>
+                                   <label class="col-sm-3 control-label"> <span class="glyphicon-asterisk glyphicon"></span> Tipo Documento:</label>
+                                  <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Documento:</label>
+                                  <label class="col-sm-3 control-label"> <span class="glyphicon-asterisk glyphicon"></span> Fecha Expedicion:</label>
+                                  <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Lugar Expedicion:</label>
                               </div>
                                        <div class="row">
                                      <div class="col-sm-3">
@@ -123,8 +149,11 @@
                                     </div>
 
                                     <div class="col-sm-3">
+
                                      {{ form.documento }}
+
                                         {{ form.documeto.errors }}
+
                                     </div>
 
                                     <div class="col-sm-3">
@@ -148,10 +177,10 @@
                                    <hr class="dotted">
                                                              <div class="form-group">
                               <div class="row">
-                                   <label class="col-sm-3 control-label">Primer Nombre:</label>
+                                   <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Primer Nombre:</label>
                                   <label class="col-sm-3 control-label">Segundo Nombre:</label>
-                                  <label class="col-sm-3 control-label">Primer Apellido:</label>
-                                  <label class="col-sm-3 control-label">Segundo Apellido:</label>
+                                  <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Primer Apellido:</label>
+                                  <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Segundo Apellido:</label>
                               </div>
                                        <div class="row">
                                      <div class="col-sm-3">
@@ -181,9 +210,9 @@
  <hr class="dotted">
                                                              <div class="form-group">
                               <div class="row">
-                                   <label class="col-sm-4 control-label">Sexo:</label>
-                                  <label class="col-sm-4 control-label">Lugar de nacimiento:</label>
-                                  <label class="col-sm-4 control-label">Fecha de nacimiento:</label>
+                                   <label class="col-sm-4 control-label"><span class="glyphicon-asterisk glyphicon"></span> Sexo:</label>
+                                  <label class="col-sm-4 control-label"><span class="glyphicon-asterisk glyphicon"></span> Lugar de nacimiento:</label>
+                                  <label class="col-sm-4 control-label"><span class="glyphicon-asterisk glyphicon"></span> Fecha de nacimiento:</label>
 
                               </div>
                                        <div class="row">
@@ -216,9 +245,9 @@
 <hr class="dotted">
                                                              <div class="form-group">
                               <div class="row">
-                                   <label class="col-sm-3 control-label">Direccion:</label>
-                                  <label class="col-sm-3 control-label">Telefono:</label>
-                                  <label class="col-sm-3 control-label">Correo:</label>
+                                   <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Direccion:</label>
+                                  <label class="col-sm-3 control-label"><span class="glyphicon-asterisk glyphicon"></span> Telefono:</label>
+                                  <label class="col-sm-6 control-label"><span class="glyphicon-asterisk glyphicon"></span> Correo:</label>
 
                               </div>
                                        <div class="row">
@@ -231,10 +260,10 @@
                                      {{ form.telefono }}
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
 
                                              {{ form.correo }}
-                                         {{ form.correo.errors }}
+
 
 
                                     </div>
@@ -249,9 +278,9 @@
 
                                      <div class="form-group">
                               <div class="row">
-                                   <label class="col-sm-6 control-label">Programa al que desea ingresar :</label>
-                                   <label class="col-sm-2 control-label">Estrato :</label>
-                                   <label class="col-sm-4 control-label">Etnia :</label>
+                                   <label class="col-sm-6 control-label"><span class="glyphicon-asterisk glyphicon"></span> Programa al que desea ingresar :</label>
+                                   <label class="col-sm-2 control-label"><span class="glyphicon-asterisk glyphicon"></span> Estrato :</label>
+                                   <label class="col-sm-4 control-label"><span class="glyphicon-asterisk glyphicon"></span> Etnia :</label>
 
                               </div>
                                        <div class="row">

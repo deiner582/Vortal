@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from Estudiante.views import *
 from Estudiante.views import Index,Logueado
+from Administrativo.views import CrearFacultad
 urlpatterns = [
     url(r'^$', Index.as_view(), name='index'),
     url(r'^principal/', Logueado.as_view(), name='home'),
@@ -24,13 +25,14 @@ urlpatterns = [
     url(r'^horario/',HorarioView.as_view(), name='opcion'),
     url(r'^pensum/', 'Estudiante.views.pensum', name='pensum'),
      url(r'^opcion/', 'Estudiante.views.opcioncalificacion', name='opcion'),
-     url(r'^matricula/', 'Estudiante.views.matricula', name='opcion'),
-     url(r'^matriculamateria/', 'Estudiante.views.matriculamateria', name='opcion'),
+     url(r'^matricula/', ListaMateriasGrupos.as_view(), name='listagrupos'),
+     url(r'^matriculamateria/',ListaGrupos.as_view(), name='matriculamateria'),
     url(r'^financiera/', 'Estudiante.views.financiera', name='opcion'),
      url(r'^estudiante/(?P<ced>.*)$','Estudiante.views.Hojavida',name='Estudiante'),
-      url(r'^lista/', ListaEstudiante.as_view(), name='lista'),
-    url(r'^detalle/(?P<pk>.*)$',DetalleEstudiante.as_view(), name='Detalle'),
-      url(r'^crear/', CrearEstudiante.as_view(), name='Crear'),
+    url(r'^lista/', ListaEstudiante.as_view(), name='lista'),
+    url(r'^hoja/(?P<pk>.*)$',DetalleEstudiante.as_view(), name='Detalle'),
+    url(r'^crear/', CrearEstudiante.as_view(), name='Crear'),
+    url(r'^facultad/',  CrearFacultad.as_view(), name='Facultad'),
     url(r'^eliminar/(?P<pk>.*)$', ElimnarFacultad.as_view(), name='eliminar'),
     url(r'^editar/(?P<pk>.*)$', ActulizarFacultad.as_view(), name='actualizar'),
     url(r'^registrarestudiante/', RegistroEstudiante.as_view(), name='registrar_estudiante'),

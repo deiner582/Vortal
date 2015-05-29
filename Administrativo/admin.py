@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from Docente.models import Grupo
 
 # Register your models here.
 class MateriasAdmin(admin.ModelAdmin):
@@ -27,17 +28,18 @@ class CiudadAdmin(admin.ModelAdmin):
     list_display = ("codigo","nombre","departamento")
 
 class GrupoAdmin(admin.ModelAdmin):
-    list_display = ("codigo","grupo","materia")
+    list_display = ("grupo","materia",'profesor')
 
 class HoraAdmin(admin.ModelAdmin):
-    list_display = ("codigo","dia","horainicio","horafinal","aula")
+    list_display = ("codigo","dia","horainicio","horafinal")
 
 admin.site.register(Programa,ProgramaAdmin)
 admin.site.register(Materia,MateriasAdmin)
 admin.site.register(Facultad,FacultadAdmin)
-admin.site.register(Bloque,FacultadAdmin)
+admin.site.register(Bloque)
 admin.site.register(Aula,AulaAdmin)
 admin.site.register(Pensum)
+admin.site.register(HorarioAula)
 admin.site.register(Hora,HoraAdmin)
 admin.site.register(Grupo,GrupoAdmin)
 admin.site.register(Ciudad,CiudadAdmin)

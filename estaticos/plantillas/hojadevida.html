@@ -7,8 +7,8 @@
 
             <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
  <!-- fila comienzo -->
-<div class="panel panel-default">
-                        <div class="panel-heading">Informacion Estudiante</div>
+<div class="panel panel-success">
+                        <div class="panel-heading">Informacion Documento</div>
                         <div class="panel-body">
 
                         	<table class="table table-striped no-margn">
@@ -16,13 +16,9 @@
                                 <tr>
                                     <th>Tipo Documento</th>
                                   <th>Documento</th>
-                                  <th>Primer Nombre</th>
-                                     <th>Segundo Nombre</th>
-                                  <th>Primer Apellido</th>
-                                  <th>Segundo Apellido</th>
-                                  <th>Carrera</th>
-                                    <th>Correo</th>
-                                    <th>telefono</th>
+                                    <th>Fecha Expedicion</th>
+                                    <th>Lugar Expedicion</th>
+
 
 
                                 </tr>
@@ -32,17 +28,55 @@
 
 
                                 <tr>
-                                    <td>{{ e.tipo_documento }}</td>
-                                  <td>{{ e.documento }}</td>
-                                  <td>{{ e.primer_nombre }}</td>
-                                     <td>{{ e.segundo_nombre }}</td>
-                                  <td>{{ e.primer_apellido }}</td>
-                                    <td>{{ e.segundo_apellido }}</td>
+                                    <td>{{ object.tipo_documento }}</td>
+                                  <td>{{ object.documento }}</td>
+                                  <td>{{ object.fecha_expedicion }}</td>
+                                     <td>{{ object.lugar_expedicion }}</td>
 
-                                    <td>{{ e.programa }}</td>
 
-                                        <td>{{ e.correo }}</td>
-                                     <td>{{ e.telefono }}</td>
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div class="panel panel-success">
+                        <div class="panel-heading">Ubicacion</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
+
+                                   <th>Primer Nombre</th>
+                                  <th>Segundo Nombre</th>
+                                  <th>Primer Apellido</th>
+                                     <th>Segundo Apellido</th>
+                                     <th>Sexo</th>
+                                     <th>Lugar de nacimiento</th>
+                                     <th>Fecha nacimiento</th>
+
+
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+
+
+                                <tr>
+                                  <td>{{ object.primer_nombre }}</td>
+                                  <td>{{ object.segundo_nombre }}</td>
+
+                                        <td>{{ object.primer_apellido }}</td>
+                                     <td>{{ object.segundo_apellido }}</td>
+                                    <td>{{ object.sexo }}</td>
+                                    <td>{{ object.lugar_nacimiento }}</td>
+                                    <td>{{ object.fecha_nacimiento }}</td>
+
 
                                 </tr>
 
@@ -51,8 +85,7 @@
 
                         </div>
                     </div>
-
-            <div class="panel panel-default">
+              <div class="panel panel-success">
                         <div class="panel-heading">Ubicacion</div>
                         <div class="panel-body">
 
@@ -60,10 +93,12 @@
                               <thead>
                                 <tr>
 
-                                  <th>Ciudad</th>
-                                  <th>Direccion</th>
-                                  <th>Barrio</th>
-                                    <th>Estrato</th>
+                                   <th>Direccion</th>
+                                  <th>Correo</th>
+                                  <th>Telefono</th>
+                                     <th>Estrato</th>
+                                     <th>Etnia</th>
+
 
 
 
@@ -74,13 +109,13 @@
 
 
                                 <tr>
-                                  <td>{{ e.lugar_nacimiento }}</td>
-                                  <td>{{ e.direccion }}</td>
+                                  <td>{{ object.direccion }}</td>
+                                  <td>{{ object.correo }}</td>
 
+                                        <td>{{ object.telefono }}</td>
+                                     <td>{{ object.estrato }}</td>
+                                    <td>{{ object.etnia }}</td>
 
-                                    <td>Los mayales</td>
-
-                                        <td>1</td>
 
 
                                 </tr>
@@ -93,19 +128,11 @@
 
 
             <div style="text-align: right">
-                <a href="/principal">
-                     <button type="button" class="btn btn-warning">
-                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+                <a href="/principal" class="btn btn-success" role="button"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+                <a href="/editar/{{ object.documento }}" class="btn btn-success" role="button"> <span class="glyphicon glyphicon-arrow-left"></span> Editar</a>
 
 
-                                </button>
-                </a>
 
-                <button type="button" class="btn btn-warning">
-                                  <span class="fa fa-calendar"></span> Editar Info
-
-
-                                </button>
 
 
 

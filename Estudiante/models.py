@@ -1,6 +1,6 @@
 from django.db import models
 from Administrativo.models import Persona,Programa
-
+from Docente.models import Grupo
 class Etnia(models.Model):
     codigo=models.CharField(primary_key=True,max_length=10)
     nombre=models.CharField(max_length=50)
@@ -29,5 +29,11 @@ class Estudiante(Persona):
     estrato=models.CharField(max_length=1,choices=Estrato,default=1)
     estado=models.CharField(max_length=9,choices=Estado,default="Inscripto",null=True,blank=True)
 
+class MatriculaAcademica(models.Model):
+    codigo=models.CharField(primary_key=True,max_length=20)
+    estudiante=models.ForeignKey(Estudiante)
+    grupos=models.ManyToManyField(Grupo)
 
+    def __unicode__(self):
+        return self.codigo+"-"+self.estudiante.primer_nombre+" "+self.estudiante.primer_apellido
 

@@ -280,6 +280,7 @@ th {
 }
 .glyphicon-asterisk:before {
   content: "\2a";
+    color: red;
 }
 .glyphicon-plus:before {
   content: "\2b";

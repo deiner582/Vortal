@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-#from Docente.models import Profesion
+
 # Create your models here.
 class Departamento(models.Model):
     codigo=models.CharField(primary_key=True,max_length=10)
@@ -40,17 +40,17 @@ class Persona(models.Model):
     primer_apellido = models.CharField(max_length=30)
     segundo_apellido=models.CharField(max_length=30,null=True,blank=True)
     sexo=models.CharField(max_length=1,default='F',choices=Sexo)
-    #nacimiento
     lugar_nacimiento=models.ForeignKey(Ciudad,related_name="nacimiento")
     fecha_nacimiento=models.DateField()
-    #direccion
     direccion=models.CharField(max_length=100)
     telefono=models.IntegerField()
     correo=models.EmailField(blank=True,null=True,unique=True)
     usuario = models.OneToOneField(User,null=True,blank=True)
 
     def __unicode__(self):
-        return  self.primer_nombre
+        return  self.primer_nombre + " "+self.primer_apellido+" "+self.segundo_apellido
+
+
 
 class Facultad(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)
@@ -62,6 +62,8 @@ class Facultad(models.Model):
      class Meta:
         #nombre en plural del modelo
         verbose_name_plural='Facultades'
+        #nombre de la tabla por defecto es :nombreapp_nombremodelo
+        db_table="Facultad"
 
 
 
@@ -73,22 +75,28 @@ class Programa(models.Model):
      def __unicode__(self):
         return self.nombre
 
+     class Meta:
+         db_table="Programa"
+
 class JefeDepartamento(Persona):
      programa=models.OneToOneField(Programa)
 
 class Bloque(models.Model):
-     codigo=models.CharField(primary_key=True,max_length=10)
-     nombre=models.CharField(max_length=50)
+     nombre=models.CharField(max_length=2,primary_key=True)
 
      def __unicode__(self):
         return self.nombre
 
 class Aula(models.Model):
      bloque=models.ForeignKey(Bloque)
-     nombre=models.CharField(primary_key=True,max_length=50)
+     nombre=models.CharField(max_length=50)
 
      def __unicode__(self):
         return self.nombre + "-" + self.bloque.nombre
+
+     class Meta:
+         #llave compuesta en django
+         unique_together=('bloque','nombre')
 
 class Materia(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)
@@ -98,6 +106,9 @@ class Materia(models.Model):
 
      def __unicode__(self):
         return  self.nombre
+
+     class Meta:
+         db_table="Materia"
 
 class Hora(models.Model):
     Dias = (
@@ -112,23 +123,22 @@ class Hora(models.Model):
     dia=models.CharField(choices=Dias,max_length=20)
     horainicio=models.TimeField()
     horafinal=models.TimeField()
+
+    def __unicode__(self):
+
+        return self.dia +"  " +   self.horainicio.strftime('%H:%M')+'-'+self.horafinal.strftime('%H:%M')
+
+class HorarioAula(models.Model):
+    hora=models.ForeignKey(Hora)
     aula=models.ForeignKey(Aula)
 
     def __unicode__(self):
 
-        return self.dia
+        return self.aula.nombre+self.aula.bloque.nombre +' - '+ str(self.hora)
 
+    class Meta:
+        unique_together=('hora','aula')
 
-class Grupo(models.Model):
-    codigo=models.CharField(primary_key=True,max_length=10)
-    grupo=models.PositiveIntegerField()
-    materia=models.ForeignKey(Materia)
-    #profesor=models.ForeignKey(Docente)
-    horas=models.ManyToManyField(Hora)
-    #
-
-    def __unicode__(self):
-        return self.codigo
 
 class Pensum(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)
@@ -139,3 +149,6 @@ class Pensum(models.Model):
 
      def __unicode__(self):
         return self.nombre
+
+
+

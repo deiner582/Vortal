@@ -14,6 +14,7 @@
 
 <div class="cal-row-fluid cal-row-head">
 
+
 		<div class="cal-cell1">Materia</div>
 
 		<div class="cal-cell1">Lunes</div>
@@ -39,47 +40,77 @@
 
 		<div class="cal-row-fluid cal-before-eventlist">
 <!-- materia -->
+        {% for o in e %}
 			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">Control 1</span>
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ o.materia }}</span>
             </div>
+
 <!-- fin materia -->
-            <!-- dia 1 -->
+            <!-- lunes -->
+
+                                {% for h in o.horario.all %}
+                                    {% if  h.hora.dia == "Lunes"%}
 			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">06:00-07:59</span>
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
             </div>
+
+
+                                    {% endif %}
+
+<!-- fin dia1 -->
+                        <!-- martes -->
+			  {% if  h.hora.dia == "Martes"%}
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
+            </div>
+
+
+                                    {% endif %}
+<!-- fin dia1 -->
+                        <!-- miercoles -->
+			  {% if  h.hora.dia == "Miercoles"%}
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
+            </div>
+
+
+                                    {% endif %}
+<!-- fin dia1 -->
+                        <!-- jueves -->
+			  {% if  h.hora.dia == "Jueves"%}
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
+            </div>
+
+
+                                    {% endif %}
+<!-- fin dia1 -->
+                        <!-- viernes -->
+			  {% if  h.hora.dia == "viernes"%}
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
+            </div>
+
+                                    {% endif %}
 <!-- fin dia1 -->
                         <!-- dia 1 -->
+			  {% if  h.hora.dia == "Sabado"%}
 			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title=""></span>
+	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
             </div>
-<!-- fin dia1 -->
-                        <!-- dia 1 -->
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title=""></span>
-            </div>
-<!-- fin dia1 -->
-                        <!-- dia 1 -->
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title=""></span>
-            </div>
+                                    {% endif %}
 <!-- fin dia1 -->
-                        <!-- dia 1 -->
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
-
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">08:00-09:59</span>
-            </div>
-<!-- fin dia1 -->
-                        <!-- dia 1 -->
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
-
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title=""></span>
-            </div>
-<!-- fin dia1 -->
+            {% endfor %}
+        {% endfor %}
 		</div>
 
 
@@ -97,18 +128,7 @@
 
 
             <div style="text-align: right">
-  <a href="/principal">
-                     <button type="button" class="btn btn-warning">
-                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
-
-
-                                </button>
-                </a>
-
-                  <button type="button" class="btn btn-warning">
-                                  <span class="fa fa-close"></span> Eliminar
-
-                                </button>
+                      <a href="/matriculamateria/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
             </div>
 
  <!-- fila final -->

@@ -24,7 +24,7 @@ class Index(FormView):
             print("Valido")
             if autenticacion.is_active:
                 login(self.request,autenticacion)
-                e=Estudiante.objects.get(documento=1065658040)
+                e=Estudiante.objects.get(usuario=self.request.user)
                 return redirect(reverse_lazy('home',kwargs={'pk': e.documento }))
             else:
                  return redirect(reverse_lazy('index'))
@@ -61,9 +61,15 @@ def horario(request):
 def financiera(request):
     return render_to_response('matriculafinanciera.html',context_instance=RequestContext(request))
 
-def Hojavida(request,ced):
-    e=Estudiante.objects.get(documento=ced)
-    return render_to_response('hojadevida.html',locals(),context_instance=RequestContext(request))
+class MatriculaFinanciera(DetailView):
+    template_name = 'matriculafinanciera.html'
+    model = Estudiante
+
+    def get_context_data(self, **kwargs):
+        context = super(MatriculaFinanciera, self).get_context_data(**kwargs)
+        context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
+        return context
+
 
 class CrearEstudiante(CreateView):
     model = Facultad
@@ -103,22 +109,37 @@ class RegistroEstudiante(CreateView):
     success_url = '/'
     form_class = FormularioRegistro
 
-class ListaGrupos(ListView):
+class ListaGrupos(DetailView):
     template_name = 'matricula_materia.html'
-    model = Grupo
+    model = Estudiante
+    context_object_name = "estudiante"
 
     def get_context_data(self, **kwargs):
+        dict={}
         context = super(ListaGrupos, self).get_context_data(**kwargs)
-        m=Materia.objects.all()
-        context['grupo']=Grupo.objects.filter(materia='m1')
-        context['materias']=Materia.objects.all()
+        materias=Materia.objects.all()
+        for m in materias:
+            g=Grupo.objects.filter(materia=m)
+            if len(g)==0:
+                dict[m]="0"
+            else:
+                 dict[m]=g
+        context['dic'] = dict
         return context
 
-class HorarioMateria(DetailView):
-    template_name = 'horariomateria.html'
-    model = Grupo
+def HorarioGrupo(request,gr,cod):
+    e=Grupo.objects.filter(materia=cod,grupo=gr)
+    return render_to_response('horariomateria.html',locals(),context_instance=RequestContext(request))
 
 
-class ListaMateriasGrupos(ListView):
+class ListaMateriasGrupos(DetailView):
     template_name = 'matricula.html'
-    model = MatriculaAcademica
+    model = Estudiante
+
+    def get_context_data(self, **kwargs):
+        context = super(ListaMateriasGrupos, self).get_context_data(**kwargs)
+        context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
+        return context
+
+class Angular(TemplateView):
+    template_name = 'angular.html'

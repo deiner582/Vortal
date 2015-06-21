@@ -26,28 +26,26 @@
                               </thead>
 
 
-
-
-
-                               {% for m in materias %}
+                              {% for key, value in dic.items %}
 
 
                                 <tr>
 
-                                  <td>{{ m.codigo }}</td>
-                                  <td>{{ m.nombre }}</td>
-                                  <td>{{ m.creditos }}</td>
+                                  <td> {{ key.codigo }}</td>
+                                  <td> {{ key.nombre }}</td>
+                                  <td>{{ key.creditos }}</td>
+
                                     <td>
-                                        <select class="form-control" id="id_tipo_documento" name="tipo_documento" required="" ng-model="grupo">
+                                        <select class="form-control"  ng-model="grupo">
 
-                                             {% for n in grupo %}
-                                                <p> hola {{ n }} <p>
-                                                 {% if n == None %}
+                                                 {%  for i in value  %}
+                                                     {% if i == "0" %}
+                                                         <option>Sin grupos asignados</option>
+                                                         {% else %}
+                                                        <option ng-value="{{ i }}">{{ i }}</option>
+                                                     {% endif %}
 
-                                                   <option value="Sin Cupo">Sin cupo</option>
-                                                 {% else %}
-                                                 <option value="{{ n.grupo }}">{{ n.grupo }}</option>
-                                                 {% endif %}
+
                                                  {% endfor %}
 
 
@@ -56,7 +54,7 @@
                                     </td>
 
                                     <td>
-                                    	 <a ng-href='/[[ grupo ]]/{{ m.codigo }} ' class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario</a>
+                                    	 <a href="/horario-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario</a>
                                     </td>
                                 <td>
                                     	 <a href="/registrarestudiante" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok"></span> Matricular</a>
@@ -70,7 +68,7 @@
                     </div>
 
             <div style="text-align: right">
-               <a href="/matricula" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+               <a href="/matricula/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
 
             </div>
 

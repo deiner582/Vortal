@@ -17,9 +17,9 @@
                                     <th>Año</th>
                                   <th>Periodo</th>
                                   <th>Total descuento</th>
- <th>Valor pagado</th>
+                                   <th>Valor pagado</th>
                                     <th>Estado</th>
-                                     <th></th>
+                                     <th>Detalle</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -32,10 +32,7 @@
                                     <td>Pagado</td>
 
  <td>
-                                    	<label class="cr-styled">
-                                        <input type="radio" ng-model="">
-                                        <i class="fa"></i>
-                                    	</label>
+                                    	<a href="/horario-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="fa fa-bars"></span> Detalle</a>
                                     </td>
                                 </tr>
 
@@ -47,20 +44,8 @@
                     </div>
  <!-- fila comienzo -->
 
-            <div style="text-align: right">
-  <a href="/principal">
-                     <button type="button" class="btn btn-warning">
-                                  <span class="glyphicon glyphicon-arrow-left"></span> Regresar
-
-
-                                </button>
-                </a>
-                <button type="button" class="btn btn-warning">
-                                  <span class="glyphicon glyphicon-arrow-right"></span> Continuar
-
-
-                                </button>
-
+   <div style="text-align: right">
+               <a href="/principal/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
 
             </div>
 

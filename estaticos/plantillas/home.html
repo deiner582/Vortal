@@ -3,29 +3,13 @@
 
 {%endblock%}
 {% block content %}
-        <div class="loading-container">
-      <div class="loading">
 
-        <div class="l1">
-          <div></div>
-        </div>
-        <div class="l2">
-          <div></div>
-        </div>
-        <div class="l3">
-          <div></div>
-        </div>
-        <div class="l4">
-          <div></div>
-        </div>
-      </div>
-    </div>
 
     <div class="warper container-fluid">
 
         <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
             <div class="row">
-                <div class="panel panel-success">
+                <div class="panel panel-default">
 
                     <div class="panel-heading">Opciones</div>
                         <div class="panel-body">
@@ -37,14 +21,14 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <i class="fa fa-money fa-5x"></i>
+                                                <i class="fa fa-bank fa-5x"></i>
                                             </div>
                                             <div class="col-xs-9 text-right">
                                                 <div>Matricula Financiera</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="/financiera">
+                                    <a href="/financiera/{{ estudiante.documento }}">
                                         <div class="panel-footer">
                                             <span class="pull-left">Ir</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -94,7 +78,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="/matricula">
+                                    <a href="/matricula/{{ estudiante.documento }}">
                                         <div class="panel-footer">
                                             <span class="pull-left">Ir</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -137,10 +121,10 @@
                                     <div class="panel-heading">
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <i class="fa fa-list-ol fa-5x"></i>
+                                                <i class="fa fa-sort-amount-asc fa-5x"></i>
                                             </div>
                                         <div class="col-xs-9 text-right">
-                                            <div>Consultar Pensum</div>
+                                            <div> Consultar Pensum</div>
 
                                         </div>
                                     </div>

@@ -8,6 +8,7 @@
             <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
 <div class="panel panel-default">
                         <div class="panel-heading">Total liquidacion estudiante</div>
+
                         <div class="panel-body">
 
                         	<table class="table table-striped no-margn">
@@ -16,26 +17,27 @@
                                   <th>Referencia de pago</th>
                                     <th>Año</th>
                                   <th>Periodo</th>
+                                    <th>Precio</th>
                                   <th>Total descuento</th>
-                                   <th>Valor pagado</th>
                                     <th>Estado</th>
                                      <th>Detalle</th>
                                 </tr>
                               </thead>
                               <tbody>
+                              {% for matricula in m %}
                                 <tr>
-                                  <td>24343-9</td>
-                                  <td>2015</td>
-                                  <td>02</td>
-                                    <td>0.00</td>
-                                     <td>708.519</td>
-                                    <td>Pagado</td>
+                                  <td>{{ matricula.referencia }}</td>
+                                  <td>{{ matricula.ano }}</td>
+                                  <td>{{ matricula.periodo }}</td>
+                                       <td>{{ matricula.precio.precio }}</td>
+                                    <td>{{ matricula.descuento }}</td>
+                                    <td>{{ matricula.estado }}</td>
 
  <td>
                                     	<a href="/horario-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="fa fa-bars"></span> Detalle</a>
                                     </td>
                                 </tr>
-
+{% endfor %}
 
                               </tbody>
                             </table>

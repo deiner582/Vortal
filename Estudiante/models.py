@@ -1,5 +1,5 @@
 from django.db import models
-from Administrativo.models import Persona,Programa
+from Administrativo.models import Persona,Programa,PrecioMatricula
 from Docente.models import Grupo
 class Etnia(models.Model):
     codigo=models.CharField(primary_key=True,max_length=10)
@@ -37,3 +37,22 @@ class MatriculaAcademica(models.Model):
     def __unicode__(self):
         return self.codigo+"-"+self.estudiante.primer_nombre+" "+self.estudiante.primer_apellido
 
+class MatriculaFinanciera(models.Model):
+    Periodo= (
+   ('1', '1'),
+   ('2', '2'),
+    )
+    Estado= (
+   ('Pagado', 'Pagado'),
+   ('Pendiente', 'Pendiente'),
+    )
+    referencia=models.CharField(primary_key=True,max_length=20)
+    estudiante=models.ForeignKey(Estudiante)
+    precio=models.ForeignKey(PrecioMatricula)
+    descuento=models.FloatField()
+    ano=models.DateField()
+    periodo=models.CharField(max_length=2,choices=Periodo)
+    estado=models.CharField(max_length=10,choices=Estado,default="Pendiente",null=True,blank=True)
+
+    def __unicode__(self):
+        return self.referencia+"-"+str(self.estudiante.documento)+"- "+self.estudiante.primer_apellido

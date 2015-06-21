@@ -12,114 +12,117 @@
                         <div class="panel-body">
  <!-- horario -->
 
-<div class="cal-row-fluid cal-row-head">
+                                                	<table class="table table-striped no-margn">
+                              <thead>
+                                <tr>
 
 
-		<div class="cal-cell1">Materia</div>
-
-		<div class="cal-cell1">Lunes</div>
-
-		<div class="cal-cell1">Martes</div>
-
-		<div class="cal-cell1">Miercoles</div>
-
-		<div class="cal-cell1">Jueves</div>
-
-		<div class="cal-cell1">Viernes</div>
-
-		<div class="cal-cell1">Sabado</div>
-
-</div>
-<div class="cal-month-box">
+                                  <th>Materia</th>
+                                  <th>Lunes</th>
+                                  <th>Martes</th>
+                                    <th>Miercoles</th>
+                                    <th>Jueves</th>
+                                    <th>Viernes</th>
+                                    <th>Sabados</th>
+                                </tr>
+                              </thead>
+                              <tbody>
 
 
 
 
+{% for o in e %}
 
+                                <tr>
 
+                                    <td>
+                                        <span class="label label-success">Materia : </span> <span class="label label-info">{{ o.materia }}</span>
+                                        <br>
+                                        <span class="label label-success">grupo : </span> <span class="label label-info">{{ o.grupo }}</span>
 
-		<div class="cal-row-fluid cal-before-eventlist">
-<!-- materia -->
-        {% for o in e %}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+                                    </td>
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ o.materia }}</span>
-            </div>
+{% for h in o.horario.all %}
+                                    <td>
+                                    {% if  h.hora.dia == "Lunes" %}
 
-<!-- fin materia -->
-            <!-- lunes -->
+                                        <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
 
-                                {% for h in o.horario.all %}
-                                    {% if  h.hora.dia == "Lunes"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
+                                         {% else %}
 
+                                    {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if h.hora.dia == "Martes" %}
+
+                                       <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
+
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
+                                         {% else %}
+
+                                    {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if h.hora.dia == "Miercoles" %}
+
+                                      <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
+
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
+                                         {% else %}
+
+                                    {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if h.hora.dia == "Jueves" %}
+
+                                      <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
+
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
+                                         {% else %}
+
+                                    {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if h.hora.dia == "viernes" %}
+
+                                     <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
+
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
+                                         {% else %}
 
                                     {% endif %}
 
-<!-- fin dia1 -->
-                        <!-- martes -->
-			  {% if  h.hora.dia == "Martes"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+                                    </td>
+                                    <td>
+                                         {% if h.hora.dia == "Sabado" %}
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
+                                         <span class="label label-success">Hora : </span><span class="label label-warning">{{ h.hora.horainicio }}-{{ h.hora.horafinal }}</span>
 
-
-                                    {% endif %}
-<!-- fin dia1 -->
-                        <!-- miercoles -->
-			  {% if  h.hora.dia == "Miercoles"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
-
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
-
+                                            <br>
+                                         <span class="label label-success">Aula : </span><span class="label label-warning">{{ h.aula }}</span>
+                                         {% else %}
 
                                     {% endif %}
-<!-- fin dia1 -->
-                        <!-- jueves -->
-			  {% if  h.hora.dia == "Jueves"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
-
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
+                                    </td>
 
 
-                                    {% endif %}
-<!-- fin dia1 -->
-                        <!-- viernes -->
-			  {% if  h.hora.dia == "viernes"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+                                  </tr>
+{% endfor %}
+                              {% endfor %}
+                              </tbody>
 
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
-
-                                    {% endif %}
-<!-- fin dia1 -->
-                        <!-- dia 1 -->
-			  {% if  h.hora.dia == "Sabado"%}
-			<div class="cal-cell1 cal-cell" data-cal-row="-day1">
-
-	             <span data-original-title="" class="pull-right" data-cal-date="2013-03-17" data-cal-view="day"  title="">{{ h.hora.horainicio }}-{{ h.hora.horafinal }} <br> {{ h.aula }}</span>
-            </div>
+                            </table>
 
 
-                                    {% endif %}
-<!-- fin dia1 -->
-            {% endfor %}
-        {% endfor %}
-		</div>
-
-
-
-
-
-
-
-</div>
 
  <!-- fin horario -->
                         </div>
@@ -128,7 +131,7 @@
 
 
             <div style="text-align: right">
-                      <a href="/matriculamateria/" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+                      <a href="/matriculamateria/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
             </div>
 
  <!-- fila final -->

@@ -150,5 +150,11 @@ class Pensum(models.Model):
      def __unicode__(self):
         return self.nombre
 
+class PrecioMatricula(models.Model):
+     codigo=models.CharField(primary_key=True,max_length=10)
+     facultad=models.ForeignKey(Facultad)
+     precio=models.FloatField()
 
+     def __unicode__(self):
+        return self.codigo +'-'+self.facultad.nombre
 

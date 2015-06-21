@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,render_to_response,get_object_or_40
 from django.template import RequestContext
 
 from Administrativo.models import *
-from .models import Estudiante,MatriculaAcademica
+from .models import Estudiante,MatriculaAcademica,MatriculaFinanciera
 from Docente.models import Grupo
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
@@ -39,10 +39,14 @@ class Logueado(DetailView):
 
 
 
-class HorarioView(TemplateView):
-
+class HorarioView(DetailView):
+    model = Estudiante
     template_name = 'horario.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(HorarioView, self).get_context_data(**kwargs)
+        context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
+        return context
 
 def pensum(request):
     ma=Materia.objects.all()
@@ -61,13 +65,13 @@ def horario(request):
 def financiera(request):
     return render_to_response('matriculafinanciera.html',context_instance=RequestContext(request))
 
-class MatriculaFinanciera(DetailView):
+class MatriculaFinancier(DetailView):
     template_name = 'matriculafinanciera.html'
     model = Estudiante
 
     def get_context_data(self, **kwargs):
-        context = super(MatriculaFinanciera, self).get_context_data(**kwargs)
-        context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
+        context = super(MatriculaFinancier, self).get_context_data(**kwargs)
+        context['m']=MatriculaFinanciera.objects.filter(estudiante=self.object)
         return context
 
 
@@ -126,11 +130,22 @@ class ListaGrupos(DetailView):
                  dict[m]=g
         context['dic'] = dict
         return context
-
+'''
 def HorarioGrupo(request,gr,cod):
     e=Grupo.objects.filter(materia=cod,grupo=gr)
-    return render_to_response('horariomateria.html',locals(),context_instance=RequestContext(request))
+    return render_to_response('horariomateria.html',locals(),context_instance=RequestContext(request)'''
 
+class HorarioGrupo(DetailView):
+    template_name = 'horariomateria.html'
+    model = Estudiante
+
+
+    def get_context_data(self, **kwargs):
+        context = super(HorarioGrupo, self).get_context_data(**kwargs)
+        context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
+        #self.kwargs accede a los parametros de una url
+        context['e']=Grupo.objects.filter(materia=self.kwargs['cod'],grupo=self.kwargs['gr'])
+        return context
 
 class ListaMateriasGrupos(DetailView):
     template_name = 'matricula.html'

@@ -30,12 +30,28 @@ class Estudiante(Persona):
     estado=models.CharField(max_length=9,choices=Estado,default="Inscripto",null=True,blank=True)
 
 class MatriculaAcademica(models.Model):
-    codigo=models.CharField(primary_key=True,max_length=20)
     estudiante=models.ForeignKey(Estudiante)
-    grupos=models.ManyToManyField(Grupo)
+    grupos=models.ForeignKey(Grupo)
 
     def __unicode__(self):
-        return self.codigo+"-"+self.estudiante.primer_nombre+" "+self.estudiante.primer_apellido
+        return self.estudiante.primer_nombre+" "+self.estudiante.primer_apellido + " " + str(self.grupos)
+
+    class Meta:
+        unique_together=('estudiante','grupos')
+
+class Nota(models.Model):
+    matriculaacedemica=models.ForeignKey(MatriculaAcademica)
+    nota_1=models.FloatField(null=True,blank=True,default=0.0)
+    nota_2=models.FloatField(null=True,blank=True,default=0.0)
+    nota_3=models.FloatField(null=True,blank=True,default=0.0)
+    nota_final=models.FloatField(null=True,blank=True)
+
+    def __unicode__(self):
+        return str(self.matriculaacedemica)
+
+    def save(self, *args, **kwargs):
+            self.nota_final=(self.nota_1 * 0.3) + (self.nota_2 * 0.3 ) + (self.nota_3 * 0.4)
+            super(Nota, self).save(*args, **kwargs)
 
 class MatriculaFinanciera(models.Model):
     Periodo= (

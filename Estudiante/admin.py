@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Estudiante,Etnia,MatriculaAcademica,MatriculaFinanciera
+from .models import Estudiante,Etnia,MatriculaAcademica,MatriculaFinanciera,Nota
 
 
 
@@ -12,3 +12,4 @@ admin.site.register(Estudiante,EstudianteAdmin)
 admin.site.register(Etnia,EtniaAdmin)
 admin.site.register(MatriculaAcademica)
 admin.site.register(MatriculaFinanciera)
+admin.site.register(Nota)

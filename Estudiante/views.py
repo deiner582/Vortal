@@ -2,15 +2,14 @@ from django.shortcuts import render,redirect,render_to_response,get_object_or_40
 from django.template import RequestContext
 
 from Administrativo.models import *
-from .models import Estudiante,MatriculaAcademica,MatriculaFinanciera
+from .models import Estudiante,MatriculaAcademica,MatriculaFinanciera,Nota
 from Docente.models import Grupo
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
-
-from django.views.generic import TemplateView,ListView,CreateView,DeleteView,UpdateView,DetailView
+from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView,ListView,CreateView,DeleteView,UpdateView,DetailView, View
 from django.contrib.auth import authenticate, login, logout
-from django.views.generic import TemplateView
-from Estudiante.forms import FormularioLogin,FormularioRegistro
+from Estudiante.forms import FormularioLogin,FormularioRegistro,FormularioMatriculaAcademica
 
 class Index(FormView):
     template_name = "index.html"
@@ -48,22 +47,18 @@ class HorarioView(DetailView):
         context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
         return context
 
-def pensum(request):
-    ma=Materia.objects.all()
-    p=Pensum.objects.all()
-    return render_to_response('pensum.html',locals(),context_instance=RequestContext(request))
+class pensum(DetailView):
+    model = Estudiante
+    template_name = 'pensum.html'
 
-def opcioncalificacion(request):
-    return render_to_response('OpcionCalificaciones.html',context_instance=RequestContext(request))
+    def get_context_data(self, **kwargs):
+        context = super(pensum, self).get_context_data(**kwargs)
+        print(self.kwargs['pr'])
+        context['p']=Pensum.objects.filter(programa=self.kwargs['pr'])
+        print(context['p'])
+        return context
 
-def matricula(request):
-    return render_to_response('matricula.html',context_instance=RequestContext(request))
 
-def horario(request):
-    return render_to_response('horario.html',context_instance=RequestContext(request))
-
-def financiera(request):
-    return render_to_response('matriculafinanciera.html',context_instance=RequestContext(request))
 
 class MatriculaFinancier(DetailView):
     template_name = 'matriculafinanciera.html'
@@ -116,29 +111,32 @@ class RegistroEstudiante(CreateView):
 class ListaGrupos(DetailView):
     template_name = 'matricula_materia.html'
     model = Estudiante
-    context_object_name = "estudiante"
+
 
     def get_context_data(self, **kwargs):
         dict={}
+        mat=[]
         context = super(ListaGrupos, self).get_context_data(**kwargs)
         materias=Materia.objects.all()
+        matricula=MatriculaAcademica.objects.filter(estudiante=self.kwargs['pk'])
+        #matricula
+        for ma in matricula:
+            mat=ma.grupos.materia.nombre
+        #materias
         for m in materias:
             g=Grupo.objects.filter(materia=m)
-            if len(g)==0:
-                dict[m]="0"
-            else:
-                 dict[m]=g
+            for ma in g:
+                materias= str(ma.materia)
+                #si la materia no esta en la matricula academica del estudiante la agrago al diccionario
+                if materias not in mat:
+                    dict[m]=g
         context['dic'] = dict
         return context
-'''
-def HorarioGrupo(request,gr,cod):
-    e=Grupo.objects.filter(materia=cod,grupo=gr)
-    return render_to_response('horariomateria.html',locals(),context_instance=RequestContext(request)'''
+
 
 class HorarioGrupo(DetailView):
     template_name = 'horariomateria.html'
     model = Estudiante
-
 
     def get_context_data(self, **kwargs):
         context = super(HorarioGrupo, self).get_context_data(**kwargs)
@@ -146,6 +144,8 @@ class HorarioGrupo(DetailView):
         #self.kwargs accede a los parametros de una url
         context['e']=Grupo.objects.filter(materia=self.kwargs['cod'],grupo=self.kwargs['gr'])
         return context
+
+
 
 class ListaMateriasGrupos(DetailView):
     template_name = 'matricula.html'
@@ -156,5 +156,51 @@ class ListaMateriasGrupos(DetailView):
         context['m']=MatriculaAcademica.objects.filter(estudiante=self.object)
         return context
 
-class Angular(TemplateView):
-    template_name = 'angular.html'
+class MatricularMateria(DetailView):
+    template_name = 'matricula_exitosa.html'
+    model = Estudiante
+
+    def get_context_data(self, **kwargs):
+        context = super(MatricularMateria, self).get_context_data(**kwargs)
+        e=Estudiante.objects.get(documento=self.kwargs['pk'])
+        gr=Grupo.objects.get(grupo= int(self.kwargs['gr']),materia=Materia.objects.get(codigo=self.kwargs['cod']))
+        matr=MatriculaAcademica(estudiante=e,grupos=gr)
+        context["grupo"]=Grupo.objects.get(grupo= int(self.kwargs['gr']),materia=Materia.objects.get(codigo=self.kwargs['cod']))
+        matr.save()
+        return context
+
+class EliminarMateria(DetailView):
+    template_name = 'eliminarmateria.html'
+    model = Estudiante
+
+    def get_context_data(self, **kwargs):
+        context = super(EliminarMateria, self).get_context_data(**kwargs)
+        e=Estudiante.objects.get(documento=self.kwargs['pk'])
+        gr=Grupo.objects.get(grupo= int(self.kwargs['gr']),materia=Materia.objects.get(codigo=self.kwargs['cod']))
+        matr=MatriculaAcademica.objects.filter(estudiante=e,grupos=gr)
+        matr.delete()
+        context["grupo"]=Grupo.objects.get(grupo= int(self.kwargs['gr']),materia=Materia.objects.get(codigo=self.kwargs['cod']))
+        return context
+
+class Opcion(DetailView):
+    template_name = 'OpcionCalificaciones.html'
+    model = Estudiante
+
+class Notas(DetailView):
+    template_name = 'notas.html'
+    model = Estudiante
+
+    def get_context_data(self, **kwargs):
+        n=[]
+        notaf=0.0
+        context = super(Notas, self).get_context_data(**kwargs)
+        estudiante=Estudiante.objects.get(documento=self.kwargs['pk'])
+        matricula=MatriculaAcademica.objects.filter(estudiante=estudiante)
+        for m in matricula:
+            nota=Nota.objects.filter(matriculaacedemica=m)
+            n.append(nota)
+        context["notas"]=n
+        for no in n:
+            print(no)
+        context["promedio"]=notaf
+        return context

@@ -1,0 +1,119 @@
+
+        <!-- Header Ends -->
+        
+       {% extends 'base.html' %}
+{% block content %}
+        <div class="warper container-fluid">
+
+            <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+
+ <!-- fila comienzo -->
+<div class="panel panel-default">
+                        <div class="panel-heading">Notas</div>
+                        <div class="panel-body">
+
+                        	<table class="table table-bordered">
+                              <thead>
+                                <tr class="success">
+                                  <th>Materia</th>
+                                    <th>Nota 1</th>
+                                    <th>Nota 2</th>
+                                    <th>Nota 3</th>
+                                    <th>Nota final</th>
+
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for nota in notas %}
+                                {% for n in nota  %}
+                                <tr>
+                                  <td>
+                                      <h4>
+                                       <span class="label label-success">Materia : </span> <span class="label label-info">{{ n.matriculaacedemica.grupos.materia }}</span>
+                                        <br>
+                                        <span class="label label-success">Grupo : </span> <span class="label label-info">{{ n.matriculaacedemica.grupos.grupo }}</span>
+
+                                       </h4>
+                                  </td>
+
+                                    <td>
+                                    <div style="text-align: center">
+                                        {% if n.nota_1 >= 3.0 %}
+                                         <h3> <span class="label label-success">{{ n.nota_1 }}</span></h3>
+                                        {% else %}
+                                            <h3> <span class="label label-danger">{{ n.nota_1 }}</span></h3>
+                                        {% endif %}
+                                    </div>
+                                    </td>
+                                 <td>
+                                    <div style="text-align: center">
+                                        {% if n.nota_2 >= 3.0 %}
+                                         <h3> <span class="label label-success">{{ n.nota_2 }}</span></h3>
+                                        {% else %}
+                                            <h3> <span class="label label-danger">{{ n.nota_2 }}</span></h3>
+                                        {% endif %}
+                                    </div>
+                                 </td>
+                                 <td>
+                                    <div style="text-align: center">
+                                        {% if n.nota_3 >= 3.0 %}
+                                         <h3> <span class="label label-success">{{ n.nota_3 }}</span></h3>
+                                        {% else %}
+                                            <h3> <span class="label label-danger">{{ n.nota_3 }}</span></h3>
+                                        {% endif %}
+                                    </div>
+                                 </td>
+                                 <td>
+                                     <div style="text-align: center">
+                                        {% if n.nota_final >= 3.0 %}
+                                         <h3> <span class="label label-success">{{ n.nota_final }}</span></h3>
+                                        {% else %}
+                                            <h3> <span class="label label-danger">{{ n.nota_final }}</span></h3>
+                                        {% endif %}
+                                    </div>
+                                 </td>
+
+                                </tr>
+
+
+                                    {% endfor %}
+                             {% endfor %}
+                              <tr>
+                                  <td>
+                                      <h1>
+                                           <div style="text-align: center">
+                                              <span class="label label-success">Promedio</span>
+                                          </div>
+
+                                      </h1>
+                                  </td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td>
+                                      <div style="text-align: center">
+                                      <h3> <span class="label label-danger">{{ promedio }}</span></h3>
+                                          </div>
+                                  </td>
+</tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+            <div style="text-align: right">
+                <a href="/principal/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+                                    <a href="/matriculamateria/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-print"></span> Imprimir</a>
+            </div>
+
+ <!-- fila final -->
+
+                </div>
+
+
+
+        
+{% endblock %}

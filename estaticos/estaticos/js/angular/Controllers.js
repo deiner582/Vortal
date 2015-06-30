@@ -17,3 +17,11 @@ miapp.controller('json1', function($scope, $http) {
             $scope.name = response;
         });
 });
+
+miapp.controller('alerta', function($scope) {
+    $scope.mensaje="hola deiner"
+        $scope.Show=function(){
+            alert($scope.mensaje);
+        };
+
+});

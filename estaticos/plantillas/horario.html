@@ -40,7 +40,7 @@
                         <div class="panel-heading">Horario</div>
                         <div class="panel-body">
 
-                                                	<table class="table table-striped no-margn">
+                                                	<table class="table table-bordered">
                               <thead>
                                 <tr>
 
@@ -59,17 +59,18 @@
 
 
 
- {% for grupo in m %}
-{% for g in grupo.grupos.all %}
+ {% for g in m %}
+
                                 <tr>
 
                                     <td>
-                                        <span class="label label-success">Materia : </span> <span class="label label-info">{{ g.materia.nombre }}</span>
+                                        <span class="label label-success">Materia : </span> <span class="label label-info">{{ g.grupos.materia.nombre }}</span>
                                         <br>
-                                        <span class="label label-success">grupo : </span> <span class="label label-info">{{ g }}</span>
+                                        <span class="label label-success">grupo : </span> <span class="label label-info">{{ g.grupos.grupo}}</span>
 
                                     </td>
-                                    {% for h in g.horario.all %}
+
+{% for h in g.grupos.horario.all  %}
 
                                     <td>
                                      {% if h.hora.dia == "Lunes" %}
@@ -140,11 +141,12 @@
 
                                     {% endif %}
                                     </td>
-                                   {% endfor %}
+
 
                                   </tr>
+    {% endfor %}
 {% endfor %}
-                              {% endfor %}
+
                               </tbody>
 
                             </table>

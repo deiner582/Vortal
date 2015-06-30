@@ -99,11 +99,23 @@ class Aula(models.Model):
          unique_together=('bloque','nombre')
 
 class Materia(models.Model):
+     Semestre= (
+   ('1', '1'),
+   ('2', '2'),
+   ('3', '3'),
+   ('4', '4'),
+   ('5', '5'),
+   ('6', '6'),
+   ('7', '7'),
+   ('8', '8'),
+   ('9', '9'),
+   ('10', '10'),
+    )
      codigo=models.CharField(primary_key=True,max_length=10)
      nombre=models.CharField(max_length=50)
      creditos=models.IntegerField()
      prerequisito=models.ForeignKey('self',related_name="materia",null=True,blank=True)
-
+     semestre=models.CharField(max_length=2,choices=Semestre)
      def __unicode__(self):
         return  self.nombre
 
@@ -142,13 +154,13 @@ class HorarioAula(models.Model):
 
 class Pensum(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)
-     nombre=models.CharField(max_length=50)
+     semestres=models.IntegerField()
      creditos=models.IntegerField()
      programa=models.ForeignKey(Programa)
      materias=models.ManyToManyField(Materia)
 
      def __unicode__(self):
-        return self.nombre
+        return self.codigo
 
 class PrecioMatricula(models.Model):
      codigo=models.CharField(primary_key=True,max_length=10)

@@ -23,7 +23,7 @@ class Grupo(models.Model):
 
     def __unicode__(self):
         #conversion a string de grupo ya que es un entero y solo se puede retornar string
-        return  str(self.grupo)
+        return  str(self.grupo) +"-"+ self.materia.nombre
 
     class Meta:
         unique_together=('grupo','materia')

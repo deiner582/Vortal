@@ -31,9 +31,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MatriculaAcademica',
             fields=[
-                ('codigo', models.CharField(max_length=20, serialize=False, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('estudiante', models.ForeignKey(to='Estudiante.Estudiante')),
-                ('grupos', models.ManyToManyField(to='Docente.Grupo')),
+                ('grupos', models.ForeignKey(to='Docente.Grupo')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='MatriculaFinanciera',
+            fields=[
+                ('referencia', models.CharField(max_length=20, serialize=False, primary_key=True)),
+                ('descuento', models.FloatField()),
+                ('ano', models.DateField()),
+                ('periodo', models.CharField(max_length=2, choices=[(b'1', b'1'), (b'2', b'2')])),
+                ('estado', models.CharField(default=b'Pendiente', max_length=10, null=True, blank=True, choices=[(b'Pagado', b'Pagado'), (b'Pendiente', b'Pendiente')])),
+                ('estudiante', models.ForeignKey(to='Estudiante.Estudiante')),
+                ('precio', models.ForeignKey(to='Administrativo.PrecioMatricula')),
             ],
         ),
         migrations.AddField(

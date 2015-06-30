@@ -3,7 +3,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
-from .models import Estudiante
+from .models import Estudiante,MatriculaAcademica
 
 
 
@@ -47,6 +47,14 @@ class FormularioRegistro(forms.ModelForm):
 
         }
 
+class FormularioMatriculaAcademica(forms.ModelForm):
+    class Meta:
+        model= MatriculaAcademica
+        fields = ['estudiante','grupos']
+        widgets={
+            'grupos':forms.TextInput(attrs={'class':'form-control','required': True}),
+            'estudiante':forms.TextInput(attrs={'class':'form-control','required': True}),
 
+        }
 
 

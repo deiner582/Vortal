@@ -49,6 +49,7 @@ class Migration(migrations.Migration):
                 ('nombre', models.CharField(max_length=50)),
             ],
             options={
+                'db_table': 'Facultad',
                 'verbose_name_plural': 'Facultades',
             },
         ),
@@ -75,14 +76,18 @@ class Migration(migrations.Migration):
                 ('codigo', models.CharField(max_length=10, serialize=False, primary_key=True)),
                 ('nombre', models.CharField(max_length=50)),
                 ('creditos', models.IntegerField()),
+                ('semestre', models.CharField(max_length=2, choices=[(b'1', b'1'), (b'2', b'2'), (b'3', b'3'), (b'4', b'4'), (b'5', b'5'), (b'6', b'6'), (b'7', b'7'), (b'8', b'8'), (b'9', b'9'), (b'10', b'10')])),
                 ('prerequisito', models.ForeignKey(related_name='materia', blank=True, to='Administrativo.Materia', null=True)),
             ],
+            options={
+                'db_table': 'Materia',
+            },
         ),
         migrations.CreateModel(
             name='Pensum',
             fields=[
                 ('codigo', models.CharField(max_length=10, serialize=False, primary_key=True)),
-                ('nombre', models.CharField(max_length=50)),
+                ('semestres', models.IntegerField()),
                 ('creditos', models.IntegerField()),
                 ('materias', models.ManyToManyField(to='Administrativo.Materia')),
             ],
@@ -105,12 +110,23 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='PrecioMatricula',
+            fields=[
+                ('codigo', models.CharField(max_length=10, serialize=False, primary_key=True)),
+                ('precio', models.FloatField()),
+                ('facultad', models.ForeignKey(to='Administrativo.Facultad')),
+            ],
+        ),
+        migrations.CreateModel(
             name='Programa',
             fields=[
                 ('codigo', models.CharField(max_length=10, serialize=False, primary_key=True)),
                 ('nombre', models.CharField(max_length=50)),
                 ('facultad', models.ForeignKey(to='Administrativo.Facultad')),
             ],
+            options={
+                'db_table': 'Programa',
+            },
         ),
         migrations.CreateModel(
             name='JefeDepartamento',

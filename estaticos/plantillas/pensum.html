@@ -2,58 +2,494 @@
 {% block content %}
   <div class="warper container-fluid">
     <div class="page-header"><h1>Academico <small>Administracion de estudiante</small></h1></div>
+     <div class="panel panel-default">
+                        <div class="panel-heading">Informacion</div>
+                        <div class="panel-body">
 
-    <div class="panel panel-default">
-      <div class="panel-heading">Periodo 1</div>
-        <div class="panel-body">
-          <table class="table table-striped no-margn">
-          {{pensum}}
+                        	<table class="table table-striped no-margn">
                               <thead>
                                 <tr>
-                                  <th>Codigo</th>
-                                  <th>Nombre</th>
-                                  <th>Ponderacion academica</th>
-                                  <th>Creditos requeridos</th>
-                                    <th>Requisitos</th>
-                                     <th>Cursada</th>
+                                  <th>Programa</th>
+                                    <th>Semestres</th>
+                                  <th>Creditos Totales</th>
+
+
                                 </tr>
                               </thead>
                               <tbody>
-                              {% for pensum in p %}
-                                   {% for m in pensum.materias.all %}
+                   {% for pensum in p %}
+                                <tr>
+                                  <td>{{ pensum.programa }}</td>
+                                    <td>{{ pensum.semestres }}</td>
+                                  <td>{{ pensum.creditos }}</td>
+
+
+
+
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                       <div class="page-header" style="text-align: center;"><h1> Semestres </h1></div>
+                       <div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">I</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "1" %}
 
 
 
 
                                 <tr>
-                                  <td></td>
-                                  <td>{{ m }}</td>
-                                  <td>4</td>
-                                    <td>0</td>
-                                   <td>CQ42</td>
-                                    <td>
-                                    	<label class="cr-styled">
-                                        <input type="checkbox" ng-model="todo.done">
-                                        <i class="fa"></i>
-                                    	</label>
-                                    </td>
+                                <div style="text-align: center">
+                                  <td>
+                                      {% if m.prerequisito == None %}
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">Ninguno</span>
+                                          {% else %}
+                                            <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                          {% endif %}
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
                                 </tr>
 
-                                       {% endfor %}
+                              {% endif %}
                               {% endfor %}
                               </tbody>
                             </table>
 
                         </div>
                     </div>
+</div>
+
+
+                       <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">II</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "2" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+                   </div>
+
+
+                       <!-- fila2  --->
+                                              <div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">III</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "3" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+
+
+                       <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">IV</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "4" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+                   </div>
+
+
+
+
+                        <div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">V</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "5" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+
+
+                       <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">VI</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "6" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+                   </div>
+
+
+                       <!-- fila2  --->
+                                              <div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">VII</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "7" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+
+
+                       <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">VII</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "8" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+                   </div>
+
+                                              <div class="row">
+<div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">IX</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "9" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+
+
+                       <div class="col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align: center">X</div>
+        <div class="panel-body">
+          <table class="table table-striped no-margn">
+
+                              <thead>
+                                <tr>
+                                  <th>Materias</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                              {% for m in pensum.materias.all %}
+
+                                  {% if m.semestre == "10" %}
+
+
+
+
+                                <tr>
+                                <div style="text-align: center">
+                                  <td>
+                                      <span class="label label-success">Requisito : </span> <span class="label label-info">{{ m.prerequisito }}</span>
+                                      <br>
+                                     <span class="label label-success">Codigo : </span> <span class="label label-info"> {{ m.codigo }} </span>
+                                       <br>
+                                      <span class="label label-success">Nombre : </span> <span class="label label-info">{{ m }}</span> <span class="label label-warning">{{ m.creditos }}</span>
+                                  </td>
+                                  </div>
+                                </tr>
+
+                              {% endif %}
+                              {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+</div>
+                   </div>
+   {% endfor %}
+
 
             <div style="text-align: right">
 
-                <button type="button" class="btn btn-warning">
-                                  <span class="glyphicon glyphicon-print"></span> Imprimir
+               <a href="/principal/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+               <a href="/principal/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-print"></span> Imprimir</a>
 
 
-                                </button>
             </div>
 
  <!-- fila final -->

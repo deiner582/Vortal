@@ -15,28 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Estudiante.views import *
-from Estudiante.views import Index,Logueado
-from Administrativo.views import CrearFacultad
+
 urlpatterns = [
-    url(r'^$', Index.as_view(), name='index'),
-    url(r'^principal/(?P<pk>.*)$', Logueado.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^horario/(?P<pk>.*)$',HorarioView.as_view(), name='opcion'),
-    url(r'^pensum/', 'Estudiante.views.pensum', name='pensum'),
-    url(r'^opcion/', 'Estudiante.views.opcioncalificacion', name='opcion'),
-    url(r'^matricula/(?P<pk>.*)$',ListaMateriasGrupos.as_view(), name='Detalle'),
-    url(r'^matriculamateria/(?P<pk>.*)$',ListaGrupos.as_view(), name='matriculamateria'),
-    url(r'^financiera/(?P<pk>.*)$', MatriculaFinancier.as_view(), name='opcion'),
-    url(r'^lista/', ListaEstudiante.as_view(), name='lista'),
-    url(r'^hoja/(?P<pk>.*)$',DetalleEstudiante.as_view(), name='Detalle'),
-    url(r'^crear/', CrearEstudiante.as_view(), name='Crear'),
-    url(r'^facultad/',  CrearFacultad.as_view(), name='Facultad'),
-    url(r'^eliminar/(?P<pk>.*)$', ElimnarFacultad.as_view(), name='eliminar'),
-    url(r'^editar/(?P<pk>.*)$', ActulizarFacultad.as_view(), name='actualizar'),
-    url(r'^registrarestudiante/', RegistroEstudiante.as_view(), name='registrar_estudiante'),
-    url(r'^angular/',Angular.as_view(), name='Angular'),
-    #url(r'^horario-(?P<gr>\w+)-((?P<cod>\w+)/)?$','Estudiante.views.HorarioGrupo', name='Horario'),
-    url(r'^horario-(?P<pk>.*)-(?P<gr>\w+)-((?P<cod>\w+)/)?$',HorarioGrupo.as_view(), name='Horario'),
+    url(r'^', include('Estudiante.urls'))
 
 ]

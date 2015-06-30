@@ -56,22 +56,42 @@
                                 </tr>
                               </thead>
                               <tbody>
-                              {% for grupo in m %}
-                                   {% for g in grupo.grupos.all %}
+
+                              {% for g in m %}
+
                                 <tr>
-                                  <td>{{ g.materia.codigo }}</td>
-                                  <td>{{ g.materia.nombre }}</td>
-                                  <td>{{ g.materia.creditos }}</td>
-                                    <td>{{ g }}</td>
+                                  <td>{{ g.grupos.materia.codigo }}</td>
+                                  <td>{{ g.grupos.materia.nombre}}</td>
+                                  <td>{{ g.grupos.materia.creditos }}</td>
+                                    <td>{{ g.grupos.grupo }}</td>
 
                                     <td>
-                                    	 <a href="/registrarestudiante" class="btn btn-success" role="button"><span class="fa fa-close"></span> Eliminar</a>
+                                    	 <a data-toggle="modal" data-target="#modal-normal" class="btn btn-success" role="button"><span class="fa fa-close"></span> Eliminar</a>
                                     </td>
                                 <td>
                                     	 <a href="/registrarestudiante" class="btn btn-success" role="button"> <span class="fa fa-exchange"></span> Cambiar</a>
                                     </td>
                                 </tr>
-                                       {% endfor %}
+  <!-- Modal Normal Size -->
+                                  <div class="modal fade" id="modal-normal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Eliminar</h4>
+          </div>
+          <div class="modal-body">
+            <p>Desea Eliminar esta materia de su Matricula Academica ?</p>
+          </div>
+          <div class="modal-footer">
+          <a  class="btn btn-success" role="button" data-dismiss="modal"><span class="fa fa-close"></span> No</a>
+            <a href="/eliminar-{{ estudiante.documento }}-{{ g.grupos.grupo }}-{{ g.grupos.materia.codigo }}/ " class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok"></span> Si</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!-- final modal -->
                              {% endfor %}
                               </tbody>
                             </table>
@@ -82,7 +102,7 @@
             <div style="text-align: right">
                 <a href="/principal/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
                                  <a href="/matriculamateria/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok"></span> Matricular</a>
-                                 <a href="" class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario Estudiante</a>
+                                 <a href="/horario/{{ estudiante.documento }}" class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario Estudiante</a>
             </div>
 
  <!-- fila final -->

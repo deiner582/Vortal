@@ -27,6 +27,9 @@ class Migration(migrations.Migration):
                 ('materia', models.ForeignKey(to='Administrativo.Materia')),
                 ('profesor', models.ForeignKey(to='Docente.Docente')),
             ],
+            options={
+                'db_table': 'Grupo',
+            },
         ),
         migrations.CreateModel(
             name='Profesion',

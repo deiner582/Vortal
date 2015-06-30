@@ -25,7 +25,7 @@
                                 </tr>
                               </thead>
 
-
+ <form method="POST" action="." role="form">
                               {% for key, value in dic.items %}
 
 
@@ -36,13 +36,13 @@
                                   <td>{{ key.creditos }}</td>
 
                                     <td>
-                                        <select class="form-control"  ng-model="grupo">
+                                        <select class="form-control"    ng-model="grupo">
 
                                                  {%  for i in value  %}
                                                      {% if i == "0" %}
                                                          <option>Sin grupos asignados</option>
                                                          {% else %}
-                                                        <option ng-value="{{ i }}">{{ i }}</option>
+                                                        <option  ng-value="{{ i }}" ng-model="item">{{ i.grupo }}</option>
                                                      {% endif %}
 
 
@@ -54,13 +54,42 @@
                                     </td>
 
                                     <td>
-                                    	 <a href="/horario-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario</a>
+                                    	 <a href="/horario-{{ estudiante.documento }}-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="fa fa-calendar"></span> Horario</a>
                                     </td>
                                 <td>
-                                    	 <a href="/registrarestudiante" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok"></span> Matricular</a>
+                                    <a  class="btn btn-success" role="button" data-toggle="modal" data-target="#modal-normal"><span class="glyphicon glyphicon-ok"></span> Matricular</a>
+
+
                                     </td>
+
+
+
+
                                 </tr>
+  <!-- Modal Normal Size -->
+                                  <div class="modal fade" id="modal-normal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Matricula</h4>
+          </div>
+          <div class="modal-body">
+            <p>Desea matricular esta materia?</p>
+          </div>
+          <div class="modal-footer">
+          <a  class="btn btn-success" role="button" data-dismiss="modal"><span class="fa fa-close"></span> No</a>
+            <a href="/matricular-{{ estudiante.documento }}-[[ grupo  ]]-{{ key.codigo }}/ " class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok"></span> Si</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!-- final modal -->
+
+
                              {% endfor %}
+ </form>
                               </tbody>
                             </table>
 
@@ -72,7 +101,6 @@
 
             </div>
 
- <!-- fila final -->
 
                 </div>
 

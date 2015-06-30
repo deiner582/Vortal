@@ -84,7 +84,7 @@
                                   <td>
                                       <h1>
                                            <div style="text-align: center">
-                                              <span class="label label-success">Promedio</span>
+                                              <span class="label label-success">Promedio Semestre</span>
                                           </div>
 
                                       </h1>
@@ -94,8 +94,12 @@
                                   <td></td>
                                   <td>
                                       <div style="text-align: center">
-                                      <h3> <span class="label label-danger">{{ promedio }}</span></h3>
-                                          </div>
+                                          {% if promedio >= 3.0 %}
+                                         <h3> <span class="label label-success">{{ promedio }}</span></h3>
+                                        {% else %}
+                                            <h3> <span class="label label-danger">{{ promedio }}</span></h3>
+                                        {% endif %}
+
                                   </td>
 </tr>
                               </tbody>

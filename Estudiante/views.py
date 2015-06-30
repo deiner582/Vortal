@@ -192,15 +192,18 @@ class Notas(DetailView):
 
     def get_context_data(self, **kwargs):
         n=[]
-        notaf=0.0
+        promedio=0.0
+        creditos=0
         context = super(Notas, self).get_context_data(**kwargs)
         estudiante=Estudiante.objects.get(documento=self.kwargs['pk'])
         matricula=MatriculaAcademica.objects.filter(estudiante=estudiante)
         for m in matricula:
             nota=Nota.objects.filter(matriculaacedemica=m)
             n.append(nota)
-        context["notas"]=n
         for no in n:
-            print(no)
-        context["promedio"]=notaf
+            for n1 in no:
+                promedio += (n1.nota_final * n1.matriculaacedemica.grupos.materia.creditos)
+                creditos += n1.matriculaacedemica.grupos.materia.creditos
+        context["promedio"]=round(promedio/creditos,1)
+        context["notas"]=n
         return context
